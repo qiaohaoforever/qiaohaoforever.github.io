@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>【学习整理】hadoop大数据解决方案 | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="hadoop大数据解决方案 test                                                                                             9f41905cad2d30e5f82859105a99c5c1.jpeg              Hadoop简介Hadoop特点 Java编写 跨计算机集群的分布式存储和计">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习整理】hadoop大数据解决方案">
+<meta property="og:url" content="http://blog.feelyou.top/posts/2445394680.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="hadoop大数据解决方案 test                                                                                             9f41905cad2d30e5f82859105a99c5c1.jpeg              Hadoop简介Hadoop特点 Java编写 跨计算机集群的分布式存储和计">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4844">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4845">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4846">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4860">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4861">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4847">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4848">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4849">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4862">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4850">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4856">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4863">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4858">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4859">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4864">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4865">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4866">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4868">
+<meta property="og:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4867">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.717Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习整理】hadoop大数据解决方案">
+<meta name="twitter:description" content="hadoop大数据解决方案 test                                                                                             9f41905cad2d30e5f82859105a99c5c1.jpeg              Hadoop简介Hadoop特点 Java编写 跨计算机集群的分布式存储和计">
+<meta name="twitter:image" content="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4844">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">【学习整理】hadoop大数据解决方案</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">【学习整理】hadoop大数据解决方案</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-01-14T12:43:52.000Z" itemprop="datePublished" class="page-time">
+  2019-01-14
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#hadoop大数据解决方案-test"><span class="post-toc-number">1.</span> <span class="post-toc-text">hadoop大数据解决方案 test</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hadoop简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">Hadoop简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hadoop特点"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Hadoop特点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hadoop架构"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Hadoop架构</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HDFS"><span class="post-toc-number">3.</span> <span class="post-toc-text">HDFS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#hdfs-特点"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">hdfs 特点</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#名称节点-Namenode（主服务器）"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">名称节点 - Namenode（主服务器）</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#数据节点-Datanode"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">数据节点 - Datanode</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#块-Rack"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">块 - Rack</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HDFS的目标"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">HDFS的目标</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hadoop-HDFS入门"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Hadoop HDFS入门</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HDFS读操作"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">HDFS读操作</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#HDFS写操作"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">HDFS写操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#使用命令行界面访问HDFS"><span class="post-toc-number">3.5.1.</span> <span class="post-toc-text">使用命令行界面访问HDFS</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hadoop-HDFS操作"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">Hadoop HDFS操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#将数据插入到HDFS："><span class="post-toc-number">3.6.1.</span> <span class="post-toc-text">将数据插入到HDFS：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#从HDFS中检索数据"><span class="post-toc-number">3.6.2.</span> <span class="post-toc-text">从HDFS中检索数据</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hadoop-fs命令参考"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">Hadoop fs命令参考</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hadoop-MapReduce"><span class="post-toc-number">4.</span> <span class="post-toc-text">Hadoop MapReduce</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#MapReduce简介"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">MapReduce简介</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#算法"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hadoop-Streaming"><span class="post-toc-number">5.</span> <span class="post-toc-text">Hadoop Streaming</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#数据流工作原理"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">数据流工作原理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Hadoop多节点集群"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">Hadoop多节点集群</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Hadoop-生态系统组件"><span class="post-toc-number">6.</span> <span class="post-toc-text">Hadoop 生态系统组件</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-【学习整理】hadoop大数据解决方案"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">【学习整理】hadoop大数据解决方案</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-01-14 20:43:52" datetime="2019-01-14T12:43:52.000Z"  itemprop="datePublished">2019-01-14</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="hadoop大数据解决方案-test"><a href="#hadoop大数据解决方案-test" class="headerlink" title="hadoop大数据解决方案 test"></a>hadoop大数据解决方案 test</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4844" alt="9f41905cad2d30e5f82859105a99c5c1.jpeg" title>
+                </div>
+                <div class="image-caption">9f41905cad2d30e5f82859105a99c5c1.jpeg</div>
+            </figure>
+<h3 id="Hadoop简介"><a href="#Hadoop简介" class="headerlink" title="Hadoop简介"></a>Hadoop简介</h3><h4 id="Hadoop特点"><a href="#Hadoop特点" class="headerlink" title="Hadoop特点"></a>Hadoop特点</h4><ul>
+<li>Java编写</li>
+<li>跨计算机集群的分布式存储和计算的环境</li>
+<li>可以上千台机器扩展，每个机器都可以提供本地计算和存储</li>
+</ul>
+<h4 id="Hadoop架构"><a href="#Hadoop架构" class="headerlink" title="Hadoop架构"></a>Hadoop架构</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4845" alt="1d66ee7db3bc4383619d0e69a61f1ab4.jpeg" title>
+                </div>
+                <div class="image-caption">1d66ee7db3bc4383619d0e69a61f1ab4.jpeg</div>
+            </figure>
+<p>Hadoop主要有两个层次，即： </p>
+<ol>
+<li>加工/计算层(<strong>MapReduce</strong>)</li>
+<li>存储层(<strong>Hadoop分布式文件系统</strong>)</li>
+</ol>
+<p>Hadoop的框架还包括以下两个模块： <strong>Hadoop通用</strong>：这是Java库和其他Hadoop组件所需的实用工具。 <strong>Hadoop YARN</strong> ：这是作业调度和集群资源管理的框架。</p>
+<p><a href="https://www.yiibai.com/hadoop/hadoop_enviornment_setup.html#article-start" target="_blank" rel="noopener">Hadoop安装</a></p>
+<h3 id="HDFS"><a href="#HDFS" class="headerlink" title="HDFS"></a>HDFS</h3><p>分布式文件储存系统<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4846" alt="d11ec7d9f4a03f3f37d13873810f9231.jpeg" title>
+                </div>
+                <div class="image-caption">d11ec7d9f4a03f3f37d13873810f9231.jpeg</div>
+            </figure></p>
+<h4 id="hdfs-特点"><a href="#hdfs-特点" class="headerlink" title="hdfs 特点"></a>hdfs 特点</h4><ul>
+<li>它适用于在分布式存储和处理。</li>
+<li>Hadoop提供的命令接口与HDFS进行交互。</li>
+<li>名称节点和数据节点能够检查集群的状态。</li>
+<li>流式访问文件系统数据。 </li>
+<li>HDFS提供了文件的权限和验证。</li>
+</ul>
+<h5 id="名称节点-Namenode（主服务器）"><a href="#名称节点-Namenode（主服务器）" class="headerlink" title="名称节点 - Namenode（主服务器）"></a>名称节点 - Namenode（主服务器）</h5><ul>
+<li>管理文件系统命名空间。 </li>
+<li>规范客户端对文件的访问。</li>
+<li>它也执行文件系统操作，如重命名，关闭和打开的文件和目录</li>
+</ul>
+<h5 id="数据节点-Datanode"><a href="#数据节点-Datanode" class="headerlink" title="数据节点 - Datanode"></a>数据节点 - Datanode</h5><p>数据储存</p>
+<ul>
+<li>数据节点上的文件系统执行的读写操作，根据客户的请求。</li>
+<li>根据名称节点的指令执行操作，如块的创建，删除和复制。</li>
+</ul>
+<h5 id="块-Rack"><a href="#块-Rack" class="headerlink" title="块 - Rack"></a>块 - Rack</h5><p>存储在HDFS文件系统中的文件将被划分为一个或多个段和/或存储在个人数据的节点。这些文件段被称为<u><strong>块</strong></u>。换句话说，数据的HDFS可以读取或写入的最小量被称为一个块。</p>
+<h4 id="HDFS的目标"><a href="#HDFS的目标" class="headerlink" title="HDFS的目标"></a>HDFS的目标</h4><ul>
+<li>故障检测和恢复：由于HDFS包括大量的普通硬件，部件故障频繁。因此HDFS应该具有快速和自动故障检测和恢复机制。</li>
+<li>巨大的数据集：HDFS有数百个集群节点来管理其庞大的数据集的应用程序。 </li>
+<li>数据硬件：请求的任务，当计算发生不久的数据可以高效地完成。涉及巨大的数据集特别是它减少了网络通信量，并增加了吞吐量。</li>
+</ul>
+<h4 id="Hadoop-HDFS入门"><a href="#Hadoop-HDFS入门" class="headerlink" title="Hadoop HDFS入门"></a>Hadoop HDFS入门</h4><p>HDFS集群主要由 NameNode 管理文件系统 Metadata 和 DataNodes 存储的实际数据。</p>
+<ul>
+<li><strong>NameNode</strong>: NameNode可以被认为是系统的主站。它维护所有系统中存在的文件和目录的文件系统树和元数据。两个文件：“命名空间映像“和”编辑日志“是用来存储元数据信息。Namenode 有所有包含数据块为一个给定的文件中的数据节点的知识，但是不存储块的位置持续。从数据节点在系统每次启动时信息重构一次。</li>
+<li><strong>DataNode</strong> : DataNodes作为从机，每台机器位于一个集群中，并提供实际的存储. 它负责为客户读写请求服务。</li>
+</ul>
+<h4 id="HDFS读操作"><a href="#HDFS读操作" class="headerlink" title="HDFS读操作"></a>HDFS读操作</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4860" alt="cae7454447bfe5e265d456d6cc96e5ef.png" title>
+                </div>
+                <div class="image-caption">cae7454447bfe5e265d456d6cc96e5ef.png</div>
+            </figure>
+<h4 id="HDFS写操作"><a href="#HDFS写操作" class="headerlink" title="HDFS写操作"></a>HDFS写操作</h4><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4861" alt="b3801f95eb955d974fca8c0638559c77.png" title>
+                </div>
+                <div class="image-caption">b3801f95eb955d974fca8c0638559c77.png</div>
+            </figure>
+<h5 id="使用命令行界面访问HDFS"><a href="#使用命令行界面访问HDFS" class="headerlink" title="使用命令行界面访问HDFS"></a>使用命令行界面访问HDFS</h5><ul>
+<li>从本地文件系统复制文件到 HDFS: <code>hdfs dfs -copyFromLocal temp.txt /</code></li>
+<li>列出一个目录下存在的文件 -ls: <code>hdfs dfs -ls /</code></li>
+<li>从 HDFS 拷贝到本地文件系统: <code>hdfs dfs -copyToLocal /temp.txt</code></li>
+<li>创建新的目录: <code>hdfs dfs -mkdir /mydirectory</code></li>
+</ul>
+<h4 id="Hadoop-HDFS操作"><a href="#Hadoop-HDFS操作" class="headerlink" title="Hadoop HDFS操作"></a>Hadoop HDFS操作</h4><p>将Hadoop应用路径配置在.bashrc <code>$HADOOP_HOME/bin/hadoop</code></p>
+<p>hdfs文件列表：<code>hadoop fs -ls &lt;args&gt;</code></p>
+<h5 id="将数据插入到HDFS："><a href="#将数据插入到HDFS：" class="headerlink" title="将数据插入到HDFS："></a>将数据插入到HDFS：</h5><ol>
+<li>创建目录：<code>hadoop fs -mkdir /user/input</code></li>
+<li>传输本地文件至Hadoop文件系统：<code>hadoop fs -put /home/file.txt /user/input</code></li>
+<li>ls命令验证文件:<code>hadoop fs -ls /user/input</code></li>
+</ol>
+<h5 id="从HDFS中检索数据"><a href="#从HDFS中检索数据" class="headerlink" title="从HDFS中检索数据"></a>从HDFS中检索数据</h5><ol>
+<li>cat命令来查看HDFS数据:<code>hadoop fs -cat /user/output/outfile</code></li>
+<li>从HDFS得到文件使用get命令在本地文件系统：<code>hadoop fs -get /user/output/ /home/hadoop_tp/</code></li>
+</ol>
+<h4 id="Hadoop-fs命令参考"><a href="#Hadoop-fs命令参考" class="headerlink" title="Hadoop fs命令参考"></a>Hadoop fs命令参考</h4><p>查看Hadoop命令：<code>hadoop fs -help</code><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4847" alt="02148d22eceb03aa6b31cb1bbf14bb75.png" title>
+                </div>
+                <div class="image-caption">02148d22eceb03aa6b31cb1bbf14bb75.png</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4848" alt="daf97a2dbafe8a65655415ba467642a6.png" title>
+                </div>
+                <div class="image-caption">daf97a2dbafe8a65655415ba467642a6.png</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4849" alt="a345d30e93ffa5cc0f16658ad742a3ea.png" title>
+                </div>
+                <div class="image-caption">a345d30e93ffa5cc0f16658ad742a3ea.png</div>
+            </figure></p>
+<h3 id="Hadoop-MapReduce"><a href="#Hadoop-MapReduce" class="headerlink" title="Hadoop MapReduce"></a>Hadoop MapReduce</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4862" alt="e1fe9a4236dffb67441e3d4fed016b80.png" title>
+                </div>
+                <div class="image-caption">e1fe9a4236dffb67441e3d4fed016b80.png</div>
+            </figure>
+<h4 id="MapReduce简介"><a href="#MapReduce简介" class="headerlink" title="MapReduce简介"></a>MapReduce简介</h4><p>MapReduce是基于Java的分布式计算，包含了两项重要任务，即Map 和 Reduce。Map采用了一组数据，并将其转换成另一组数据，其中，各个元件被分解成元组(键/值对)。其次，减少任务，这需要从Map 作为输入并组合那些数据元组成的一组小的元组输出。<br><strong>MapReduce主要优点是</strong>，它很容易大规模数据处理在多个计算节点。MapReduce模型中，数据处理的原语被称为<u><strong>映射器</strong></u>和<u><strong>减速器</strong></u>。但是编写MapReduce形式的应用，扩展应用程序运行在几百，几千，甚至几万机集群中的仅仅是一个配置的更改。</p>
+<h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a><a href="https://www.yiibai.com/hadoop/hadoop_mapreduce.html#article-start" target="_blank" rel="noopener">算法</a></h4><p>MapReduce计划分三个阶段执行，即映射阶段，shuffle阶段，并减少阶段：</p>
+<ol>
+<li>映射阶段：映射或映射器的工作是处理输入数据。一般输入数据是在文件或目录的形式，并且被存储在Hadoop的文件系统（HDFS）。输入文件被传递到由线映射器功能线路。映射器处理该数据，并创建数据的若干小块。 </li>
+<li>减少阶段：这个阶段是：Shuffle阶段和Reduce阶段的组合。减速器的工作是处理该来自映射器中的数据。处理之后，它产生一组新的输出，这将被存储在HDFS。</li>
+</ol>
+<ul>
+<li>在一个MapReduce工作，Hadoop的发送Map和Reduce任务到集群的相应服务器。 </li>
+<li>框架管理数据传递例如发出任务的所有节点之间的集群周围的详细信息，验证任务完成，和复制数据。</li>
+<li>大部分的计算发生在与在本地磁盘上，可以减少网络通信量数据的节点。</li>
+<li>给定的任务完成后，将群集收集并减少了数据，以形成一个合适的结果，并且将其发送回Hadoop服务器。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4850" alt="1eb00bebcbf022bceb570b5abcd58495.jpeg" title>
+                </div>
+                <div class="image-caption">1eb00bebcbf022bceb570b5abcd58495.jpeg</div>
+            </figure>
+<p><strong>术语：</strong></p>
+<ul>
+<li>PayLoad - 应用程序实现映射和减少功能，形成工作的核心</li>
+<li>Mapper - 映射器的输入键/值对映射到一组中间键/值对</li>
+<li>NamedNode - 节点管理Hadoop分布式文件系统（HDFS）</li>
+<li>DataNode - 节点数据呈现在任何处理发生之前。</li>
+<li>MasterNode - 节点所在JobTracker运行并接受来自客户端作业请求。</li>
+<li>SlaveNode - 节点所在Map和Reduce程序运行。</li>
+<li>JobTracker - 调度作业并跟踪作业分配给任务跟踪器。</li>
+<li>Task Tracker - 跟踪任务和报告状态的JobTracker。</li>
+<li>Job -程序在整个数据集映射器和减速的执行。</li>
+<li>Task - 一个映射程序的执行或对数据的一个片段的减速器。</li>
+<li>Task Attempt - 一种尝试的特定实例在SlaveNode执行任务。</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4856" alt="880897b4d04086e0db68dea8359dc8c7.png" title>
+                </div>
+                <div class="image-caption">880897b4d04086e0db68dea8359dc8c7.png</div>
+            </figure>
+<h3 id="Hadoop-Streaming"><a href="#Hadoop-Streaming" class="headerlink" title="Hadoop Streaming"></a>Hadoop Streaming</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4863" alt="eb007a9894797479e872a968e525fa42.png" title>
+                </div>
+                <div class="image-caption">eb007a9894797479e872a968e525fa42.png</div>
+            </figure>
+<p>Hadoop数据流是Hadoop自带发行的实用程序。该程序允许创建和运行Map/Reduce任务的任何可执行文件或脚本映射器和/或减速器。<br>任何工作在Hadoop中必须有两个阶段：<strong>映射器</strong>和<strong>减速器</strong>。<br><strong>映射阶段代码</strong> mapper.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">!/usr/bin/python</span><br><span class="line">import sys</span><br><span class="line"># Input takes from standard input </span><br><span class="line"># Remove whitespace either side </span><br><span class="line"># Break the line into words </span><br><span class="line"># Iterate the words list  </span><br><span class="line"># Write the results to standard output</span><br><span class="line"></span><br><span class="line">for myline in sys.stdin: </span><br><span class="line">    myline = myline.strip() </span><br><span class="line">    words = myline.split() </span><br><span class="line">        for myword in words:</span><br><span class="line">            print &apos;%s\t%s&apos; % (myword, 1)</span><br></pre></td></tr></table></figure></p>
+<p><strong>减速器阶段代码</strong> reducer.py<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/python</span><br><span class="line"># Input takes from standard input </span><br><span class="line"># Remove whitespace either side </span><br><span class="line"># Split the input we got from mapper.py word</span><br><span class="line"># Convert count variable to integer </span><br><span class="line"># Count was not a number, so silently ignore this line continue</span><br><span class="line"># Write result to standard output </span><br><span class="line"># Do not forget to output the last word if needed! </span><br><span class="line">from operator import itemgetter </span><br><span class="line">import sys </span><br><span class="line">current_word = &quot;&quot;</span><br><span class="line">current_count = 0 </span><br><span class="line">word = &quot;&quot; </span><br><span class="line">for myline in sys.stdin: </span><br><span class="line">    myline = myline.strip() </span><br><span class="line">    count = myline.split(&apos;\t&apos;, 1) </span><br><span class="line">    try: </span><br><span class="line">      count = int(count) </span><br><span class="line">    except ValueError: </span><br><span class="line">        if current_word == word: </span><br><span class="line">            current_count += count </span><br><span class="line">    else: </span><br><span class="line">        if current_word: </span><br><span class="line">            print &apos;%s\t%s&apos; % (current_word, current_count) </span><br><span class="line">            current_count = count</span><br><span class="line">            current_word = word</span><br><span class="line">            if current_word == word: </span><br><span class="line">                print &apos;%s\t%s&apos; % (current_word, current_count)</span><br></pre></td></tr></table></figure></p>
+<p><strong>wordCount程序的执行</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ $HADOOP_HOME/bin/hadoop jar contrib/streaming/hadoop-streaming-1.2.1.jar \</span><br><span class="line">   -input input_dirs \ </span><br><span class="line">   -output output_dir \ </span><br><span class="line">   -mapper &lt;path/mapper.py \ </span><br><span class="line">   -reducer &lt;path/reducer.py</span><br></pre></td></tr></table></figure></p>
+<h4 id="数据流工作原理"><a href="#数据流工作原理" class="headerlink" title="数据流工作原理"></a>数据流工作原理</h4><p>当指定<strong>映射器</strong>的脚本，每个映射任务将启动脚本作为一个单独的进程时映射器初始化。作为mapper任务运行时，输入转换成行给进程的标准输入（STDIN）。在此期间，映射器收集从该方法的标准输出（stdout）面向行输出和每一行转换为键/值对，其被收集作为映射器的输出。缺省情况下，一行到第一个制表符的前缀是键和行（不包括制表符）的其余部分为值。如果在该行没有任何制表符，则整行键和值被视为null。然而，这可以被定制，每次需要1个。<br>当指定<strong>减速器</strong>脚本，每个减速器任务将启动脚本作为一个单独的进程，然后减速初始化。减速器任务运行时将其转换其输入键/值对，进入行并将该行进程的标准输入（STDIN）。在此期间，在减速机收集来自该过程的标准输出（stdout）的面向行的输出，每行转换成一个密钥/值对，其被收集作为减速机的输出。缺省情况下，一行到第一个制表符的前缀是键，（不包括制表符）的其余部分的值为行。然而，这可以被定制为每次具体要求。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4858" alt="06438f538e3d560eed19e525f9674d84.png" title>
+                </div>
+                <div class="image-caption">06438f538e3d560eed19e525f9674d84.png</div>
+            </figure></p>
+<h4 id="Hadoop多节点集群"><a href="#Hadoop多节点集群" class="headerlink" title="Hadoop多节点集群"></a><a href="https://www.yiibai.com/hadoop/hadoop_multi_node_cluster.html#article-start" target="_blank" rel="noopener">Hadoop多节点集群</a></h4><h3 id="Hadoop-生态系统组件"><a href="#Hadoop-生态系统组件" class="headerlink" title="Hadoop 生态系统组件"></a>Hadoop 生态系统组件</h3> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4859" alt="0f4a11c57b17f6395df1f323fdaa8e61.png" title>
+                </div>
+                <div class="image-caption">0f4a11c57b17f6395df1f323fdaa8e61.png</div>
+            </figure>
+<p> Sqoop连接器:外部存储系统之间的数据传输<br> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4864" alt="0f08c55ca876f254561dfd92ab467b71.png" title>
+                </div>
+                <div class="image-caption">0f08c55ca876f254561dfd92ab467b71.png</div>
+            </figure></p>
+<p> Flume 用于移动大规模批量流数据到 HDFS 系统<br> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4865" alt="6370193749b13377c06c4739b184a041.png" title>
+                </div>
+                <div class="image-caption">6370193749b13377c06c4739b184a041.png</div>
+            </figure></p>
+<p> Pig<br> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4866" alt="41109bd9bdb4a011801ade1a2d9e1a0f.jpeg" title>
+                </div>
+                <div class="image-caption">41109bd9bdb4a011801ade1a2d9e1a0f.jpeg</div>
+            </figure></p>
+<p> Hive:基于Hadoop的Map-Reduce 框架之上的数据仓库解决方案<br> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4868" alt="cc84411feaeca66cafd221b476406105.jpeg" title>
+                </div>
+                <div class="image-caption">cc84411feaeca66cafd221b476406105.jpeg</div>
+            </figure></p>
+<p> <img src="evernotecid://1CA0AFCD-03AE-4038-A73C-4391E3BC4006/appyinxiangcom/3876486/ENResource/p4867" alt="49ed37f0cd850659d194ffdc6d85c162.png"></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.717Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/2445394680.html" target="_blank" rel="external">http://blog.feelyou.top/posts/2445394680.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/2445394680.html&title=《【学习整理】hadoop大数据解决方案》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/2445394680.html&title=《【学习整理】hadoop大数据解决方案》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/2445394680.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【学习整理】hadoop大数据解决方案》 — 正版乔&url=http://blog.feelyou.top/posts/2445394680.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/2445394680.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/1861734117.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【词云】听故事的故事人</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/2329761363.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【数据库】听故事的故事人</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Mon Jan 14 2019 20:43:52 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/2445394680.html&title=《【学习整理】hadoop大数据解决方案》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/2445394680.html&title=《【学习整理】hadoop大数据解决方案》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/2445394680.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《【学习整理】hadoop大数据解决方案》 — 正版乔&url=http://blog.feelyou.top/posts/2445394680.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/2445394680.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKklEQVR42u3aS3LDIBAFwNz/0s42G5P3AKciaFYulUqitRgzn6+veL1+rHfXxyt55vj+DQsDA+OxjOT1yebG19t78r1hYGDcw3gXwcb3JNtN8OMQPH4XBgYGRkJKwnR7BQMDA2M94LYJ5z/938DAwHgUI0lix+E1KaWthOxtuTgGBsYDGXm4/PvfH+lvYGBgPIrxKtdKIjre3GthYWBgnM1oi/55ejlOVusENXkLBgbGoYx2DCIvt+WMNpQXvVMMDIwjGHOtyjlMW85Lfr/938DAwDiI0TYU5+Jbe9ysGw8YGBhHM+YK8XNhd46XfGgMDIwbGG0C2b7mI+Oqc1EcAwPjIEZedNsQIqdanlHAxcDAOI4xTiPbkdNdQTwf+MDAwLiB8elUNsevtE4xMDDOY8yNebUF/faw2B5MMTAw7mHkD1oZXU0OhfWhEwMD42hGC8iHLfJkOCFtOOdiYGAcwZhrNO5qYbZlvl/6GxgYGIcy8ofONTvz5Da5HqW1GBgYBzFa61yLca4NUIR7DAyMixltOtrOd7SHxbd4DAyMyxgrXcJtjclyJxgYGKcy5pLVdtiibYvmQxsYGBg3MNowtxI0823lDYkahoGB8VhGO5KVNxVWPk1bsMPAwLiBMVmOL496dYadfywMDAyMOGVdSXfzUYxtARcDA+NQRlvoz5/TluqWAi4GBsYDGW0zIDnk5c9pj48YGBi3MVYmNeaCaTIolmMwMDCOZnwDNXssuiVVXPwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>1、什么是最重要的机器学习技术？ | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="在Alan Turing最著名的文章《Computing Machinery and Intelligence 》所问的一个基本问题“机器能做我们所做（所思考）的吗？”机器学习不是关于“">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1、什么是最重要的机器学习技术？">
+<meta property="og:url" content="http://blog.feelyou.top/posts/164851981.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="在Alan Turing最著名的文章《Computing Machinery and Intelligence 》所问的一个基本问题“机器能做我们所做（所思考）的吗？”机器学习不是关于“">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://leanote.com/api/file/getImage?fileId=59a97b3eab64412baf002845">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.711Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="1、什么是最重要的机器学习技术？">
+<meta name="twitter:description" content="在Alan Turing最著名的文章《Computing Machinery and Intelligence 》所问的一个基本问题“机器能做我们所做（所思考）的吗？”机器学习不是关于“">
+<meta name="twitter:image" content="https://leanote.com/api/file/getImage?fileId=59a97b3eab64412baf002845">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">1、什么是最重要的机器学习技术？</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">1、什么是最重要的机器学习技术？</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-30T09:43:00.000Z" itemprop="datePublished" class="page-time">
+  2018-11-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/翻译/">翻译</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-1、什么是最重要的机器学习技术？"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">1、什么是最重要的机器学习技术？</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-30 17:43:00" datetime="2018-11-30T09:43:00.000Z"  itemprop="datePublished">2018-11-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/翻译/">翻译</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://leanote.com/api/file/getImage?fileId=59a97b3eab64412baf002845" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>在Alan Turing最著名的文章《Computing Machinery and Intelligence 》所问的一个基本问题“机器能做我们所做（所思考）的吗？”机器学习不是关于“思考”的，但是与一个相关活动有关：学习或者说是完善。就像Arthur Samuel所言，“这种学习给予了计算机不用明确的编程就可以学习的能力！“</p>
+<p>机器学习技术一般地被分为两个类别：</p>
+<p>在<code>监督学习</code>部分的栗子中，计算机通过得到的一个输入去“学习”模型，预测出一个合适的、误差最小的输出。分类、神经网络和回归都是监督学习的栗子。对于所有这些技术来说，我们可以假设这里有一个圣人或者老师“教”计算机如何使用课堂学到的东西去处理新的未见过的数据。</p>
+<p><code>无监督学习</code>，计算机则没有老师，他们只能孤独的寻找数据的结构、模式、特点（anomalies）。聚类和密度估计就是无监督学习的典型栗子。</p>
+<p>让我们现在回顾一下主要的机器学习技术：</p>
+<p>在<code>分类</code>中，“老师”代表的是输入、目标类型部分，计算机学习对新的未测试的数据根据属性分类。朴素贝叶斯、支持向量机、决策树和神经网络都是分类的方法。前两种会在这一卷里讨论，其余的几个则会在下一卷。</p>
+<p>在<code>回归</code>中，“老师”代表着输入和连续目标对象，计算机学习如何在新的、未测试的数据中预测连续值。线性回归和逻辑回归会在本卷讨论。决策树、支持向量机、神经网络也可以用于回归。</p>
+<p>在<code>关联规则学习</code>中，计算机将面对大量观测值，这些将组成多元化的变量，这个任务是学习各个变量之间的关系，例如A&amp;B—&gt;C（即，如果A和B同时发生，则C也将发生）。</p>
+<p><code>聚类</code>，计算机学习如何把观测值划分到多种子集中，那样每一部分都将通过许多定义明确的矩阵由相同种类的观测值组成K-Means 和DBSCAN 也是这一类算法。</p>
+<p><code>密度估计</code>，计算机学习如何去发现描述型数据的统计值，算法例如EM(Expectation Maximization,最大期望)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.711Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/164851981.html" target="_blank" rel="external">http://blog.feelyou.top/posts/164851981.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/164851981.html&title=《1、什么是最重要的机器学习技术？》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/164851981.html&title=《1、什么是最重要的机器学习技术？》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/164851981.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《1、什么是最重要的机器学习技术？》 — 正版乔&url=http://blog.feelyou.top/posts/164851981.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/164851981.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/1984236213.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/614799361.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Spark机器学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Fri Nov 30 2018 17:43:00 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/164851981.html&title=《1、什么是最重要的机器学习技术？》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/164851981.html&title=《1、什么是最重要的机器学习技术？》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/164851981.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《1、什么是最重要的机器学习技术？》 — 正版乔&url=http://blog.feelyou.top/posts/164851981.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/164851981.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aQXIDIQwFUd//0pNtFoHpL3CqQM3KNXYYHgsiJH0+eDyD8fvb0S/JnKMnm4cMGTKOZTzTsWuf0o3ga5MhQ0YfxujF889kufM5yZP52mTIkCGDLJ3MMz+y0y2TIUOGDD41D/Jqh6wMGTJkpJfYXQm7dMs238VlyJBxIIMv4v8/f6W+IUOGjKMYTzjml9J5IEjScLUhQ4aMuxlpKo0vnbdW8LTdS6ApQ4aMqxm1EiMpT9aurxuaPGTIkHERgyS20nR/rZ0iDT3/iHBlyJDRgLH36AzCOHz4DueUIUNGA0YtlcavqTyILAagMmTIuJqx0tzAGyB4kwR/V/EqK0OGjAMZu9L6K4cmv0IP55EhQ0YDxkoqbaVUmR7KL+k2GTJkNGPwpDw/gtMEXJC8kyFDRgNGrdGBlzzT45UHrDJkyOjAqAVnvFEsvQZvaDWTIUPGdYxaIMjDRLIs8uQlcJQhQ0YbRq21q5b0J1fWDT0jMmTIuIKRXlZrvQ3bSpXzN8qQIaMBg4d6/GXpZi39lQwZMhowaim2NBlX+w1Kz8mQIaMBgy+RlznTwgCvUcb1WBkyZBzLeMLBX5lS07YzGTJk9GHwQYK2OJUPnsQ9IzJkyLiU8b1DtrZzfA0yZMjoxkiXlRYSVgJHdLjLkCFDBm6bSFN1tSDypdlChgwZ7RkpKb2m8ovutv8bMmTIOISxqyVivTzJ55QhQ0YfxlKnRilZljairW+QDBkyjmX8AGLxIuBdC5TIAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

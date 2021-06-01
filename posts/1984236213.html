@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="1.What are the most important machine learning techniques? 2.Why is it important to have a robust set of metrics for machine learning? 3.Why are Features extraction and engineering so important in mac">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning">
+<meta property="og:url" content="http://blog.feelyou.top/posts/1984236213.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="1.What are the most important machine learning techniques? 2.Why is it important to have a robust set of metrics for machine learning? 3.Why are Features extraction and engineering so important in mac">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.713Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning">
+<meta name="twitter:description" content="1.What are the most important machine learning techniques? 2.Why is it important to have a robust set of metrics for machine learning? 3.Why are Features extraction and engineering so important in mac">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-30T09:59:00.000Z" itemprop="datePublished" class="page-time">
+  2018-11-30
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/翻译/">翻译</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-A-collection-of-Data-Science-Interview-Questions-Solved-in-Python-and-Spark-Hands-on-Big-Data-and-Machine-Learning"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-30 17:59:00" datetime="2018-11-30T09:59:00.000Z"  itemprop="datePublished">2018-11-30</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/翻译/">翻译</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><a href="http://feelyou.top/2018/11/30/1%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%8A%80%E6%9C%AF%EF%BC%9F/" target="_blank" rel="noopener">1.What are the most important machine learning techniques?</a></p>
+<p>2.Why is it important to have a robust set of metrics for machine learning?</p>
+<p>3.Why are Features extraction and engineering so important in machine learning?</p>
+<p>5.What is a training set, a validation set, a test set and a gold set in supervised and unsupervised learning?</p>
+<p>6.What is a Bias - Variance tradeoff?</p>
+<p>7.What is a cross-validation and what is an overfitting?</p>
+<p>8.Why are vectors and norms used in machine learning?</p>
+<p>9.What are Numpy, Scipy and Spark essential datatypes?</p>
+<p>10.Can you provide an example for Map and Reduce in Spark? (Let’s compute the Mean Square Error)</p>
+<p>11.Can you provide examples for other computations in Spark?</p>
+<p>12.How does Python interact with Spark</p>
+<p>13.What is Spark support for Machine Learning?</p>
+<p>14.How does Spark work in a parallel environment</p>
+<p>15.What is the mean, the variance, and the covariance?</p>
+<p>16.What are percentiles and quartiles?</p>
+<p>17.Can you transform an XML file into Python Pandas?</p>
+<p>18.Can you read HTML into Python Pandas?</p>
+<p>19.Can you read JSON into Python Pandas?</p>
+<p>20.Can you draw a function from Python?</p>
+<p>21.Can you represent a graph in Python?</p>
+<p>22.What is an Ipython notebook?</p>
+<p>23.What is a convenient tool for performing data statistics?</p>
+<p>24.How is it convenient to visualize data statistics</p>
+<p>25.How to compute covariance and correlation matrices with pandas</p>
+<p>26.Can you provide an example of connection to the Twitter API?</p>
+<p>27.Can you provide an example of connection to the LinkedIn API?</p>
+<p>28.Can you provide an example of connection to the Facebook API?</p>
+<p>29.What is a TFxIDF?</p>
+<p>30.What is “features hashing”? And why is it useful for BigData?</p>
+<p>31.What is “continuous features binning”?</p>
+<p>32.What is an LP normalization?</p>
+<p>33.What is a Chi Square Selection?</p>
+<p>34.What is mutual information and how can it be used for features selection?</p>
+<p>35.What is a loss function, what are linear models, and what do we mean by regularization parameters in machine learning?</p>
+<p>36.What is an odd ratio?</p>
+<p>37.What is a sigmoid function and what is a logistic function?</p>
+<p>38.What is a gradient descent?</p>
+<p>39.What is a stochastic gradient descent?</p>
+<p>40.What is a Linear Least Square Regression?</p>
+<p>41.What are Lasso, Ridge, and ElasticNet regularizations?</p>
+<p>42.What is a Logistic Regression?</p>
+<p>43.What is a stepwise regression?</p>
+<p>44.How to include nonlinear information into linear models</p>
+<p>45.What is a Naïve Bayes classifier?</p>
+<p>46.What is a Bernoulli and a Multivariate Naïve Bayes?</p>
+<p>47.What is a Gaussian?</p>
+<p>48.What is a Standard Scaling?</p>
+<p>49.Why are statistical distributions important?</p>
+<p>50.Can you compare your data with some distribution? What is a qq-plot?</p>
+<p>51.What is a Gaussian Naïve Bayes?</p>
+<p>52.What is another way to use Naïve Bayes with continuous data?</p>
+<p>53.What is the Nearest Neighbor classification?</p>
+<p>54.What are Support Vector Machines (SVM)?</p>
+<p>55.What are SVM Kernel tricks?</p>
+<p>56.What is K-Means Clustering?</p>
+<p>57.Can you provide an example for Text Classification with Spark?</p>
+<p>58.Where to go from here</p>
+<p>59.Ultra-Quick introduction to Python</p>
+<p>60.Ultra-Quick introduction to Probabilities</p>
+<p>61.Ultra-Quick introduction to Matrices and Vectors</p>
+<p>摘录来自: Antonio Gulli. “A collection of Data Science Interview Questions Solved in Python and Spark: BigData and Machine Learning in Python and Spark (A Collection of Programming Interview Questions Book 6)”。 iBooks.</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.713Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/1984236213.html" target="_blank" rel="external">http://blog.feelyou.top/posts/1984236213.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/1984236213.html&title=《A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/1984236213.html&title=《A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/1984236213.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning》 — 正版乔&url=http://blog.feelyou.top/posts/1984236213.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/1984236213.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/548970225.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">更换国内源</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/164851981.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">1、什么是最重要的机器学习技术？</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Fri Nov 30 2018 17:59:00 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/1984236213.html&title=《A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/1984236213.html&title=《A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/1984236213.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《A collection of Data Science Interview Questions Solved in Python and Spark   Hands-on Big Data and Machine Learning》 — 正版乔&url=http://blog.feelyou.top/posts/1984236213.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/1984236213.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3a0W6DMAwF0P7/T3fPUwe7tmlVksPTxCD4ZFIW23k84uv5ch3dP7rOxzy6c/GFgYFxW0by+aM752G9Ppk/k8eGgYGxD+NoBTt/Jgn3/PPVyTq8j4GBgREzkrDy0DEwMDAmjGqq+aULLgYGxq0YSRI7SWjz59+ei2NgYNyQkS+Xn//5Lf0NDAyMWzGexWte3L8qkl9jYmBgLM24tpSWI8sJapISY2BgLM1I0sjCQHHQvbZBeZuIgYFxc0b1tfNCWO/4RT7yYZwYGBhLM/IPT4r+1XUyn1AMDIx9GNXtXW+Z7vHyJBkDA2NtRi/oJFnN09R5AQ4DA2MfRm9x7LU2J+McjoaBgbEZ46ojF9XEuNdCwMDA2IEx2TjmQ+eN0qtSYgwMjJUY+Wvnd6ohTg6QYWBg7MBIFsf5x5Jx8s3oH1OJgYGxNOP819UjX9Ww8g1o9DwGBsYGjLxwNinJ5dvK5pkRDAyMRRlJyjrPlfOR89IeBgbGPozPtBh7bYACBgMDYwNGtcg12Q7mU5BMHwYGxm6MXoOzVzjrnfv455gFBgbGcoxri2h58a7aWij8HTAwMJZjVJe5ydD5u0nqG7UHMDAwFmL0jmTl1BxWnTIMDIzdGPnCV10KJ0lyYbIwMDAw4u1g7xDYZOIwMDAw5oX+anD5Mxf/38DAwPh6RrUZ0GsS5ONUl3IMDIy1GaOTGsUmZVKSq2IwMDCWZvwA5iZ0cl+m9d8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

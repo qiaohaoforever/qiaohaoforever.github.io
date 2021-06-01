@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>时序数据库InfluxDB | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数据库">
+    <meta name="description" content="在系统服务部署过后，线上运行服务的稳定性是系统好坏的重要体现，监控系统状态至关重要，经过调研了解，时序数据库influxDB在此方面表现优异。 influxDB介绍  时间序列数据是以时间字段为每行数据的标示，比如股票市场的价格，环境中的温度，主机的CPU使用率等。但是又有什么数据是不包含timestamp的呢？几乎所有的数据都可以打上一个timestamp字段。时间序列数据更重要的一个属性是如">
+<meta name="keywords" content="数据库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="时序数据库InfluxDB">
+<meta property="og:url" content="http://blog.feelyou.top/posts/424938270.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="在系统服务部署过后，线上运行服务的稳定性是系统好坏的重要体现，监控系统状态至关重要，经过调研了解，时序数据库influxDB在此方面表现优异。 influxDB介绍  时间序列数据是以时间字段为每行数据的标示，比如股票市场的价格，环境中的温度，主机的CPU使用率等。但是又有什么数据是不包含timestamp的呢？几乎所有的数据都可以打上一个timestamp字段。时间序列数据更重要的一个属性是如">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.720Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="时序数据库InfluxDB">
+<meta name="twitter:description" content="在系统服务部署过后，线上运行服务的稳定性是系统好坏的重要体现，监控系统状态至关重要，经过调研了解，时序数据库influxDB在此方面表现优异。 influxDB介绍  时间序列数据是以时间字段为每行数据的标示，比如股票市场的价格，环境中的温度，主机的CPU使用率等。但是又有什么数据是不包含timestamp的呢？几乎所有的数据都可以打上一个timestamp字段。时间序列数据更重要的一个属性是如">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">时序数据库InfluxDB</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">时序数据库InfluxDB</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-12-04T11:18:00.000Z" itemprop="datePublished" class="page-time">
+  2018-12-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#influxDB介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">influxDB介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#操作介绍"><span class="post-toc-number">2.</span> <span class="post-toc-text">操作介绍</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-时序数据库InfluxDB"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">时序数据库InfluxDB</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-12-04 19:18:00" datetime="2018-12-04T11:18:00.000Z"  itemprop="datePublished">2018-12-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <blockquote>
+<p>在系统服务部署过后，线上运行服务的稳定性是系统好坏的重要体现，监控系统状态至关重要，经过调研了解，时序数据库influxDB在此方面表现优异。</p>
+<h3 id="influxDB介绍"><a href="#influxDB介绍" class="headerlink" title="influxDB介绍"></a>influxDB介绍</h3><p>  时间序列数据是以时间字段为每行数据的标示，比如股票市场的价格，环境中的温度，主机的CPU使用率等。但是又有什么数据是不包含timestamp的呢？几乎所有的数据都可以打上一个timestamp字段。时间序列数据更重要的一个属性是如何去查询它。在查询的时候，对于时间序列我们总是会带上一个时间范围去过滤数据。同时查询的结果里也总是会包含timestamp字段。<br>InfluxDB 是一个开源分布式时序、事件和指标数据库。使用 Go 语言编写，无需外部依赖。其设计目标是实现分布式和水平伸缩扩展。<br>它有三大特性：</p>
+</blockquote>
+<ol>
+<li>Time Series （时间序列）：你可以使用与时间有关的相关函数（如最大，最小，求和等）</li>
+<li>Metrics（度量）：你可以实时对大量数据进行计算</li>
+<li>Eevents（事件）：它支持任意的事件数据<br>特点：</li>
+</ol>
+<ul>
+<li>schemaless(无结构)，可以是任意数量的列</li>
+<li>min, max, sum, count, mean, median 一系列函数，方便统计</li>
+<li>Native HTTP API, 内置http支持，使用http读写</li>
+<li>Powerful Query Language 类似<code>sql</code></li>
+</ul>
+<h3 id="操作介绍"><a href="#操作介绍" class="headerlink" title="操作介绍"></a>操作介绍</h3><p>远程连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">influx -host xx.xx.xx.xx -port xxxx(默认8086) -username xx -password xx -database xx</span><br></pre></td></tr></table></figure></p>
+<p>创建及使用数据库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">create database &quot;test&quot;; --创建数据库</span><br><span class="line">show databases;  --查看数据库</span><br><span class="line">use test; --选取数据库</span><br></pre></td></tr></table></figure></p>
+<p>增删改查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">SHOW MEASUREMENTS  --查询当前数据库中含有的表</span><br><span class="line">SHOW FIELD KEYS --查看当前数据库所有表的字段</span><br><span class="line">SHOW series from pay --查看key数据</span><br><span class="line">SHOW TAG KEYS FROM &quot;pay&quot; --查看key中tag key值</span><br><span class="line">SHOW TAG VALUES FROM &quot;pay&quot; WITH KEY = &quot;merId&quot; --查看key中tag 指定key值对应的值</span><br><span class="line">SHOW TAG VALUES FROM cpu WITH KEY IN (&quot;region&quot;, &quot;host&quot;) WHERE service = &apos;redis&apos;</span><br><span class="line">DROP SERIES FROM &lt;measurement_name[,measurement_name]&gt; WHERE &lt;tag_key&gt;=&apos;&lt;tag_value&gt;&apos; --删除key</span><br><span class="line">SHOW CONTINUOUS QUERIES   --查看连续执行命令</span><br><span class="line">SHOW QUERIES  --查看最后执行命令</span><br><span class="line">KILL QUERY &lt;qid&gt; --结束命令</span><br><span class="line">SHOW RETENTION POLICIES ON mydb  --查看保留数据</span><br><span class="line">查询数据</span><br><span class="line">SELECT * FROM /.*/ LIMIT 1  --查询当前数据库下所有表的第一行记录</span><br><span class="line">select * from pay  order by time desc limit 2</span><br><span class="line">select * from  db_name.&quot;POLICIES name&quot;.measurement_name --指定查询数据库下数据保留中的表数据 POLICIES name数据保留</span><br><span class="line">删除数据</span><br><span class="line">delete from &quot;query&quot; --删除表所有数据，则表就不存在了</span><br><span class="line">drop MEASUREMENT &quot;query&quot;   --删除表（注意会把数据保留删除使用delete不会）</span><br><span class="line">DELETE FROM cpu</span><br><span class="line">DELETE FROM cpu WHERE time &lt; &apos;2000-01-01T00:00:00Z&apos;</span><br><span class="line">DELETE WHERE time &lt; &apos;2000-01-01T00:00:00Z&apos;</span><br><span class="line">DROP DATABASE “testDB” --删除数据库</span><br><span class="line">DROP RETENTION POLICY &quot;dbbak&quot; ON mydb --删除保留数据为dbbak数据</span><br><span class="line">DROP SERIES from pay where tag_key=&apos;&apos; --删除key中的tag</span><br><span class="line"></span><br><span class="line">SHOW SHARDS  --查看数据存储文件</span><br><span class="line">DROP SHARD 1</span><br><span class="line">SHOW SHARD GROUPS</span><br><span class="line">SHOW SUBSCRIPTIONS</span><br></pre></td></tr></table></figure></p>
+<p>6、数据保留命令</p>
+<p>查看保留期 <code>SHOW RETENTION POLICIES ON mydb</code></p>
+<p>修改保留期 <code>ALTER RETENTION POLICY default ON online DEFAULT</code></p>
+<p>删除保留期 <code>DROP RETENTION POLICY &lt;retentionpolicy&gt; ON &lt;database&gt;</code></p>
+<p>创建保留期 <code>REATE RETENTION POLICY &quot;rp_name&quot; ON &quot;db_name&quot; DURATION 30d REPLICATION 1 DEFAULT</code></p>
+<p><code>rp_name</code>：策略名</p>
+<p><code>db_name</code>：具体的数据库名</p>
+<p><code>30d</code>：保存30天，30天之前的数据将被删除</p>
+<p>它具有各种时间参数，比如：h（小时），w（星期）m minutes h hours d days w weeks INF infinite</p>
+<p><code>REPLICATION 1</code>：副本个数，这里填1就可以了</p>
+<p><code>DEFAULT</code>设为默认的策略</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.720Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/424938270.html" target="_blank" rel="external">http://blog.feelyou.top/posts/424938270.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/424938270.html&title=《时序数据库InfluxDB》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/424938270.html&title=《时序数据库InfluxDB》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/424938270.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《时序数据库InfluxDB》 — 正版乔&url=http://blog.feelyou.top/posts/424938270.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/424938270.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/leetcode7.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【leetcode】7.整数反转</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/leetcode1.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【leetcode】1.两数之和</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Tue Dec 04 2018 19:18:00 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/424938270.html&title=《时序数据库InfluxDB》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/424938270.html&title=《时序数据库InfluxDB》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/424938270.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《时序数据库InfluxDB》 — 正版乔&url=http://blog.feelyou.top/posts/424938270.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/424938270.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACL0lEQVR42u3aMY7DMAwF0dz/0t42RWzPJ+UFTI2qIHFkPRUEKfHzweM4Gd+/nj1J5jz7ZvGQIUPGaxnH5bh+5XMbwdcmQ4aMfRhnL77+TJZ7PWdts2TIkCGDB0GS0pFkMd0yGTJkyOBT8ySvFmRlyJAhIy1iVx3Y1YL7slpchgwZL2TwRfz/50fuN2TIkPEqxhGONAiuevJmHhkyZIxm8ADHU0Zy6BYXqCTRlCFDxmhG2hLBrydr5euCRjEZMmQMYqTpIHl9rZ2Cz/bjXzJkyNiGwRNBEnCDNA6H+9M5ZciQMZpRa7ZIS1yeRHYSUBkyZMxmpEfz/JX8GcJeVtDKkCHjVQye3vHCtZZE8o37MY8MGTI2YPClr72q7JTNqBaXIUPGUEZ6KH/9TLFVIj28kyFDxmgGCZS8NO0fz9VqUhkyZOzA6Fwc1q4neetY8LwMGTKGMtIjM95AxpdFvrlJHGXIkLENIz32euKas3idKUOGjNGM2t/4gvhsfA03Za0MGTKGMvqhkx/0pxeiwTbJkCFjA0atFSwtaPvP3JwaypAhYwPGE6GWXwykARfttwwZMl7O6Bz9pwlcJ6wH9bcMGTLGMfjgTRi8YYJ8g5otZMiQsQEjDbLpctOdK65BhgwZGzD4EXytOaOTOLYuBmTIkLElI00feVGaNmqg40QZMmRsyehcataSyNZNrAwZMgYxOi0Raejst47JkCFjN0anU6OWCPJrhn7CKkOGjJcz/gD49zf1emE5dwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

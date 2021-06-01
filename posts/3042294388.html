@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>关于房产去库存、房产税的分析 | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="情况说明：目前随着中央一系列房地产政策的出台，我国房价出现了相应的变化，具体表现为北上广深等特大城市房价一路猛涨，而二三线城市房价略有小幅下跌，楼市呈现冰火两重天的景象。本文就一线城市代表北京和二三线城市荆州的房地产情况做了如下的比较分析。">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于房产去库存、房产税的分析">
+<meta property="og:url" content="http://blog.feelyou.top/posts/3042294388.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="情况说明：目前随着中央一系列房地产政策的出台，我国房价出现了相应的变化，具体表现为北上广深等特大城市房价一路猛涨，而二三线城市房价略有小幅下跌，楼市呈现冰火两重天的景象。本文就一线城市代表北京和二三线城市荆州的房地产情况做了如下的比较分析。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003124">
+<meta property="og:image" content="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003126">
+<meta property="og:image" content="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003125">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于房产去库存、房产税的分析">
+<meta name="twitter:description" content="情况说明：目前随着中央一系列房地产政策的出台，我国房价出现了相应的变化，具体表现为北上广深等特大城市房价一路猛涨，而二三线城市房价略有小幅下跌，楼市呈现冰火两重天的景象。本文就一线城市代表北京和二三线城市荆州的房地产情况做了如下的比较分析。">
+<meta name="twitter:image" content="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003124">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">关于房产去库存、房产税的分析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">关于房产去库存、房产税的分析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-11-30T10:55:04.000Z" itemprop="datePublished" class="page-time">
+  2018-11-30
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-关于房产去库存、房产税的分析"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">关于房产去库存、房产税的分析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-11-30 18:55:04" datetime="2018-11-30T10:55:04.000Z"  itemprop="datePublished">2018-11-30</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>情况说明：目前随着中央一系列房地产政策的出台，我国房价出现了相应的变化，具体表现为北上广深等特大城市房价一路猛涨，而二三线城市房价略有小幅下跌，楼市呈现冰火两重天的景象。本文就一线城市代表北京和二三线城市荆州的房地产情况做了如下的比较分析。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003124" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>   </p>
+<p> <img src="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003126" alt></p>
+<p>政策说明：</p>
+<p>l  房产去库存：</p>
+<p>事件背景：2015年12月20日至21日在北京举行的中央城市工作会议上指出，明年经济社会发展五大任务之一就是化解房地产库存。鼓励房地产开发企业顺应市场规律调整营销策略，适当降低商品住房价格。有分析人士指出，这预示着我国城市工作将迎来重大变化，也将对楼市和房企的命运产生重大影响。</p>
+<p>推动路径：一是通过新农民工市民化消化；二是通过房地产企业购并消化；三是通过取消限购来消化,更多城市限贷或限购政策待取消,特大城市二手房限制政策或放宽；四是通过扩大政府购买消化。</p>
+<p>成效：国家统计局2016年4月15日公布最近数据显示，3月末，商品房待售面积73516万平方米，比2月末减少415万平方米。根据全国35个城市库存面积的走势看，也呈现了明显的下滑态势，部分城市的库存甚至步入了罕见的低位，去库存周期在3个月左右的水平，远远低于合理值12个月水平。</p>
+<p>l  房产税：房产税是以房屋为征税对象，按房屋的计税余值或租金收入为计税依据，向产权所有人征收的一种财产税。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://leanote.com/api/file/getImage?fileId=58147792ab644162e1003125" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>问题提出：北京作为国家政治、文化、经济中心，吸引着全国各地的人们，这里集聚了中国的大量财富，随着中央各项房产政策的实施，北京房价本年度一路上涨，房屋均价从40000上涨至47500，整体上涨幅度为18.7%，部分区域上涨幅度突破100%，而二三线城市荆州房价小幅下跌后平稳波动。与一线城市如火如荼的房价相比，二三线城市房地产市场呈现出下跌趋势。那么房产去库存、房产税对此轮房价波动起到了什么作用呢？</p>
+<p>问题分析：房产去库存主要所瞄准的群体是二三线城市，多表现为房屋供大于求、大量的房地产开发导致人们无法及时吸纳，造成大量资金流动停滞，影响国家经济发展。房产税政策主要针对已持有一套房产的家庭和部分投机倒把、炒房的人群，提高第二套房的首付比率，甚至限购，以到达平稳猛涨城市房价，抑制上涨房价，满足无房人群的刚需。</p>
+<p>就目前而言，北上广深等地区房价依旧高歌猛进，房产去库存的目标已超额完成，这些地区房屋供应量已远远低于人们的需求，房产税的实施对抑制北京房价过快上涨可能起到一定程度的帮助。但北上广深优良的教育资源、医疗资源基础建设，吸引着大量“新市民”的涌入，导致人们对这些城市房屋的需求不断增加，这些对房屋刚需的人们往往不受房产税的管控，房产税的调控对刚需人群来说稍显无力。不过，据了解，北京在高房价的同时，也有相当程度的空置率，全面实施房产税可能会让持有多处房产的人们出售房产，提高地区房屋供给量，对稳定房价、消除房地产泡沫起到了一定作用。</p>
+<p>而二三线城市由于没有像北上广深一样的就业机会，发展受到局限，特别是在近几年经济形势不太景气的大氛围下，二三线城市人们和农村人民对房屋需求减弱，房地产行业在近几年不断发力，贷款条件放宽、拿地相对较容易，导致二三线城市出现大量房屋库存，严重影响到经济发展，大量的烂尾楼工程出现可能导致地区经济动荡。所以，实行房产去库存政策是大势所趋。在政策的倡导下，二三线城市房价大量下调，调整房屋建筑审批流程，从源头上缩紧库存，激活实体经济发展，营造健康持续的房地产环境。然而，二三线城市人们购买力有限，无法吸收如此之多的房产。所以二三线城市依旧可能持续下跌。</p>
+<p>总结：冰火两重天的房产市场，其根本原因是地区发展不平衡，经济发展过于集中，资源分配不均。中央在抑制房价猛涨、打压炒房行为的同时，也要兼顾地区发展平衡，实打实地增加老百姓的钱袋子，增加老百姓的幸福感。在制度方面严格审批拿地建房、商业贷款手续，净化房产制度。这是一场地方与中央一同携手的持久战！</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.718Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/3042294388.html" target="_blank" rel="external">http://blog.feelyou.top/posts/3042294388.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/3042294388.html&title=《关于房产去库存、房产税的分析》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/3042294388.html&title=《关于房产去库存、房产税的分析》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/3042294388.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于房产去库存、房产税的分析》 — 正版乔&url=http://blog.feelyou.top/posts/3042294388.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/3042294388.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/2653774897.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">文本挖掘初探</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/1243066710.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Fri Nov 30 2018 18:55:04 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/3042294388.html&title=《关于房产去库存、房产税的分析》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/3042294388.html&title=《关于房产去库存、房产税的分析》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/3042294388.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《关于房产去库存、房产税的分析》 — 正版乔&url=http://blog.feelyou.top/posts/3042294388.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/3042294388.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKElEQVR42u3aS3KkMBAFQN//0j3bmQX4vRKeMFKy6iBoULIo6qOvr/j4/HVcnb8/knveX//AgYGB8VpG8vhkcffn22vytWFgYJzDuIpgV9fky03w9yH4fm0YGBgYLSNZVr50DAwMjHVGXnb+6oCLgYHxEkZSxOaANoy2xTMGBsZpjLzr/v9//8h8AwMD41WMT3msB+inVvLPPTEwMLZm5AGuLS/bQUJy/punYGBgbMpIStN2uT89SIjyVgwMjI0YbTHZNr/yjWWz35ffDQwMjMMY7YAzb5bl5XGd4WJgYGzESFpgT52f8ZLNGRgYGHszVkrKNh2cbcIYlrIYGBibMoZ/KEcCs3K3HU5gYGCcw0hStHabRXu34cAAAwNja0YbXttgnQ9KH0sTMTAwXs6YDQvbhn6bLOYkDAyMExj5RU9tXc03cNTjVQwMjK0ZSbnYItsNZAmpSEMxMDA2ZeSNs3youZJWzhpzGBgY5zDyZG5lwJnfeWl4iYGBsQWjbXitNOlmDbXoFWNgYBzMaMNfuzGiTRYv8RgYGIcxZvPBlTxt5c4YGBh7Mz7lMdtsMUs3l+pvDAyMjRizZlm73Lbz98BmCwwMjO0YeZDNF5qnm/mQ8pt7YmBgHMDIA1/eys9jfP4FuHxZGBgYGGXJOit384FEtNkCAwPjYMYMkzfd8lbdY98NDAyMlzDaYUAbmvPCdZhuYmBgbM1Y2akxC6b5S2mfiIGBsR3jD819dHKXZ2y+AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

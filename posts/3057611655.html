@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>豆瓣读书3.0 —— 书名列表查询📖 | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="api,nodejs,python">
+    <meta name="description" content="前两版本请见：https://github.com/qiaohaoforever/DoubanBook 书名查询调用地址：https://book.feelyou.top/search/ 请求方式：GET 返回类型：JSON 请求示例：https://book.feelyou.top/search/深度学习 请求参数（Query）    名称 类型 是否必须 描述     书名 STRING 必选">
+<meta name="keywords" content="api,nodejs,python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="豆瓣读书3.0 —— 书名列表查询📖">
+<meta property="og:url" content="http://blog.feelyou.top/posts/3057611655.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="前两版本请见：https://github.com/qiaohaoforever/DoubanBook 书名查询调用地址：https://book.feelyou.top/search/ 请求方式：GET 返回类型：JSON 请求示例：https://book.feelyou.top/search/深度学习 请求参数（Query）    名称 类型 是否必须 描述     书名 STRING 必选">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://pic.downk.cc/item/5e411c8d2fb38b8c3c770b3e.png">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.721Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="豆瓣读书3.0 —— 书名列表查询📖">
+<meta name="twitter:description" content="前两版本请见：https://github.com/qiaohaoforever/DoubanBook 书名查询调用地址：https://book.feelyou.top/search/ 请求方式：GET 返回类型：JSON 请求示例：https://book.feelyou.top/search/深度学习 请求参数（Query）    名称 类型 是否必须 描述     书名 STRING 必选">
+<meta name="twitter:image" content="https://pic.downk.cc/item/5e411c8d2fb38b8c3c770b3e.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">豆瓣读书3.0 —— 书名列表查询📖</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">豆瓣读书3.0 —— 书名列表查询📖</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-02-10T09:51:39.000Z" itemprop="datePublished" class="page-time">
+  2020-02-10
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/基建/">基建</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#书名查询"><span class="post-toc-number">1.</span> <span class="post-toc-text">书名查询</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#请求参数（Query）"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">请求参数（Query）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#返回参数"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">返回参数</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-豆瓣读书3-0"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">豆瓣读书3.0 —— 书名列表查询📖</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-02-10 17:51:39" datetime="2020-02-10T09:51:39.000Z"  itemprop="datePublished">2020-02-10</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/基建/">基建</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>前两版本请见：<a href="https://github.com/qiaohaoforever/DoubanBook" target="_blank" rel="noopener">https://github.com/qiaohaoforever/DoubanBook</a></p>
+<h2 id="书名查询"><a href="#书名查询" class="headerlink" title="书名查询"></a>书名查询</h2><p>调用地址：<a href="https://book.feelyou.top/search/" target="_blank" rel="noopener">https://book.feelyou.top/search/</a></p>
+<p>请求方式：GET</p>
+<p>返回类型：JSON</p>
+<p>请求示例：<a href="https://book.feelyou.top/search/深度学习" target="_blank" rel="noopener">https://book.feelyou.top/search/深度学习</a></p>
+<h4 id="请求参数（Query）"><a href="#请求参数（Query）" class="headerlink" title="请求参数（Query）"></a>请求参数（Query）</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>书名</td>
+<td>STRING</td>
+<td>必选</td>
+<td>图书名称</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="返回参数"><a href="#返回参数" class="headerlink" title="返回参数"></a>返回参数</h4><p>图书信息列表为list格式，每一本书对应一个json。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>名称</th>
+<th>类型</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>书名</td>
+<td>str</td>
+<td>“深度学习”</td>
+</tr>
+<tr>
+<td>id</td>
+<td>douban书籍编码</td>
+<td>int</td>
+<td>27087503</td>
+</tr>
+<tr>
+<td>cover_url</td>
+<td>封面图片</td>
+<td>str</td>
+<td>“<a href="https://img3.doubanio.com/view/subject/l/public/s29518349.jpg" target="_blank" rel="noopener">https://img3.doubanio.com/view/subject/l/public/s29518349.jpg</a>“</td>
+</tr>
+<tr>
+<td>topics</td>
+<td>话题</td>
+<td>list</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>labels</td>
+<td>标签</td>
+<td>list</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>abstract</td>
+<td>简介</td>
+<td>str</td>
+<td>“[美] 伊恩·古德费洛 / [加] 约书亚·本吉奥 / [加] 亚伦·库维尔 / 赵申剑 / 黎彧君 / 符天凡 / 李凯 / 人民邮电出版社 / 2017-7-1 / 168”</td>
+</tr>
+<tr>
+<td>url</td>
+<td>图书页面</td>
+<td>str</td>
+<td>“<a href="https://book.douban.com/subject/27087503/" target="_blank" rel="noopener">https://book.douban.com/subject/27087503/</a>“</td>
+</tr>
+<tr>
+<td>rating</td>
+<td>评分</td>
+<td>dict</td>
+<td>{“count”: 839,”rating_info”: “”,”star_count”: 4,”value”: 8.3}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><img src="https://pic.downk.cc/item/5e411c8d2fb38b8c3c770b3e.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;tpl_name&quot;: &quot;search_simple&quot;,</span><br><span class="line">    &quot;title&quot;: &quot;[丛书] 深度学习系列&quot;,</span><br><span class="line">    &quot;abstract&quot;: &quot;;机械工业出版社;清华大学出版社 / 共11册&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://book.douban.com/series/45479&quot;,</span><br><span class="line">    &quot;id&quot;: 45479,</span><br><span class="line">    &quot;labels&quot;: [</span><br><span class="line">      </span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;tpl_name&quot;: &quot;search_subject&quot;,</span><br><span class="line">    &quot;title&quot;: &quot;深度学习&quot;,</span><br><span class="line">    &quot;id&quot;: 27087503,</span><br><span class="line">    &quot;cover_url&quot;: &quot;https://img3.doubanio.com/view/subject/l/public/s29518349.jpg&quot;,</span><br><span class="line">    &quot;topics&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;label_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;labels&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;abstract&quot;: &quot;[美] 伊恩·古德费洛 / [加] 约书亚·本吉奥 / [加] 亚伦·库维尔 / 赵申剑 / 黎彧君 / 符天凡 / 李凯 / 人民邮电出版社 / 2017-7-1 / 168&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://book.douban.com/subject/27087503/&quot;,</span><br><span class="line">    &quot;abstract_2&quot;: &quot;&quot;,</span><br><span class="line">    &quot;extra_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;interest&quot;: null,</span><br><span class="line">    &quot;more_url&quot;: &quot;onclick=\&quot;moreurl(this,&#123;i:&apos;0&apos;,query:&apos;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&apos;,subject_id:&apos;27087503&apos;,from:&apos;book_subject_search&apos;,cat_id:&apos;1001&apos;&#125;)\&quot;&quot;,</span><br><span class="line">    &quot;rating&quot;: &#123;</span><br><span class="line">      &quot;count&quot;: 839,</span><br><span class="line">      &quot;rating_info&quot;: &quot;&quot;,</span><br><span class="line">      &quot;star_count&quot;: 4,</span><br><span class="line">      &quot;value&quot;: 8.3</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;id&quot;: 30293801,</span><br><span class="line">    &quot;title&quot;: &quot;Python深度学习&quot;,</span><br><span class="line">    &quot;cover_url&quot;: &quot;https://img3.doubanio.com/view/subject/l/public/s29839337.jpg&quot;,</span><br><span class="line">    &quot;labels&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;label_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;extra_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;rating&quot;: &#123;</span><br><span class="line">      &quot;value&quot;: 9.6,</span><br><span class="line">      &quot;count&quot;: 461,</span><br><span class="line">      &quot;rating_info&quot;: &quot;&quot;,</span><br><span class="line">      &quot;star_count&quot;: 5</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;abstract&quot;: &quot;[美] 弗朗索瓦•肖莱 / 张亮 / 人民邮电出版社 / 2018-8 / 119.00元&quot;,</span><br><span class="line">    &quot;topics&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;more_url&quot;: &quot;onclick=\&quot;moreurl(this,&#123;i:&apos;1&apos;,query:&apos;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&apos;,subject_id:&apos;30293801&apos;,from:&apos;book_subject_search&apos;,cat_id:&apos;1001&apos;&#125;)\&quot;&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://book.douban.com/subject/30293801/&quot;,</span><br><span class="line">    &quot;abstract_2&quot;: &quot;&quot;,</span><br><span class="line">    &quot;tpl_name&quot;: &quot;search_subject&quot;,</span><br><span class="line">    &quot;interest&quot;: null</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;more_url&quot;: &quot;onclick=\&quot;moreurl(this,&#123;i:&apos;2&apos;,query:&apos;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&apos;,subject_id:&apos;33450010&apos;,from:&apos;book_subject_search&apos;,cat_id:&apos;1001&apos;&#125;)\&quot;&quot;,</span><br><span class="line">    &quot;cover_url&quot;: &quot;https://img3.doubanio.com/view/subject/l/public/s32322795.jpg&quot;,</span><br><span class="line">    &quot;labels&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;topics&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;interest&quot;: null,</span><br><span class="line">    &quot;title&quot;: &quot;动手学深度学习&quot;,</span><br><span class="line">    &quot;tpl_name&quot;: &quot;search_subject&quot;,</span><br><span class="line">    &quot;rating&quot;: &#123;</span><br><span class="line">      &quot;value&quot;: 9.3,</span><br><span class="line">      &quot;count&quot;: 109,</span><br><span class="line">      &quot;star_count&quot;: 4.5,</span><br><span class="line">      &quot;rating_info&quot;: &quot;&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;label_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;abstract&quot;: &quot;阿斯顿·张（Aston Zhang） / 李沐（Mu Li） / [美] 扎卡里·C. 立顿（Zachary C. Lipton） / [德] 亚历山大·J. 斯莫拉（Alexander J. Smola） / 人民邮电出版社 / 2019-6 / 85.00元&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://book.douban.com/subject/33450010/&quot;,</span><br><span class="line">    &quot;abstract_2&quot;: &quot;&quot;,</span><br><span class="line">    &quot;extra_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;id&quot;: 33450010</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;extra_actions&quot;: [</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;color&quot;: &quot;#CF5B40&quot;,</span><br><span class="line">        &quot;text&quot;: &quot;豆瓣书店有售&quot;,</span><br><span class="line">        &quot;url&quot;: &quot;https://book.douban.com/subject/30425822/?channel=subject_list&amp;platform=web&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        &quot;color&quot;: &quot;#973F31&quot;,</span><br><span class="line">        &quot;text&quot;: &quot;豆瓣阅读电子版&quot;,</span><br><span class="line">        &quot;url&quot;: &quot;https://read.douban.com/ebook/107186317/?dcs=search-buylink&amp;dcm=douban&amp;dct=30425822&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    &quot;tpl_name&quot;: &quot;search_subject&quot;,</span><br><span class="line">    &quot;abstract&quot;: &quot;[美]特伦斯·谢诺夫斯基（Terrence Sejnowski） / 姜悦兵 / 中信出版集团 / 2019-2 / 88&quot;,</span><br><span class="line">    &quot;id&quot;: 30425822,</span><br><span class="line">    &quot;more_url&quot;: &quot;onclick=\&quot;moreurl(this,&#123;i:&apos;3&apos;,query:&apos;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&apos;,subject_id:&apos;30425822&apos;,from:&apos;book_subject_search&apos;,cat_id:&apos;1001&apos;&#125;)\&quot;&quot;,</span><br><span class="line">    &quot;topics&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;cover_url&quot;: &quot;https://img3.doubanio.com/view/subject/l/public/s29971614.jpg&quot;,</span><br><span class="line">    &quot;label_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;interest&quot;: null,</span><br><span class="line">    &quot;url&quot;: &quot;https://book.douban.com/subject/30425822/&quot;,</span><br><span class="line">    &quot;rating&quot;: &#123;</span><br><span class="line">      &quot;rating_info&quot;: &quot;&quot;,</span><br><span class="line">      &quot;count&quot;: 403,</span><br><span class="line">      &quot;star_count&quot;: 4,</span><br><span class="line">      &quot;value&quot;: 7.6</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;title&quot;: &quot;深度学习 : 智能时代的核心驱动力量&quot;,</span><br><span class="line">    &quot;abstract_2&quot;: &quot;&quot;,</span><br><span class="line">    &quot;labels&quot;: [</span><br><span class="line">      </span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;topics&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;id&quot;: 26976457,</span><br><span class="line">    &quot;title&quot;: &quot;Tensorflow：实战Google深度学习框架&quot;,</span><br><span class="line">    &quot;interest&quot;: null,</span><br><span class="line">    &quot;label_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;abstract_2&quot;: &quot;&quot;,</span><br><span class="line">    &quot;labels&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;abstract&quot;: &quot;郑泽宇 / 顾思宇 / 电子工业出版社 / 2017-2-10 / 79&quot;,</span><br><span class="line">    &quot;rating&quot;: &#123;</span><br><span class="line">      &quot;star_count&quot;: 4,</span><br><span class="line">      &quot;count&quot;: 267,</span><br><span class="line">      &quot;rating_info&quot;: &quot;&quot;,</span><br><span class="line">      &quot;value&quot;: 8</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;extra_actions&quot;: [</span><br><span class="line">      </span><br><span class="line">    ],</span><br><span class="line">    &quot;cover_url&quot;: &quot;https://img3.doubanio.com/view/subject/l/public/s29349250.jpg&quot;,</span><br><span class="line">    &quot;more_url&quot;: &quot;onclick=\&quot;moreurl(this,&#123;i:&apos;4&apos;,query:&apos;%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0&apos;,subject_id:&apos;26976457&apos;,from:&apos;book_subject_search&apos;,cat_id:&apos;1001&apos;&#125;)\&quot;&quot;,</span><br><span class="line">    &quot;tpl_name&quot;: &quot;search_subject&quot;,</span><br><span class="line">    &quot;url&quot;: &quot;https://book.douban.com/subject/26976457/&quot;</span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.721Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/3057611655.html" target="_blank" rel="external">http://blog.feelyou.top/posts/3057611655.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/api/">api</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/">nodejs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/3057611655.html&title=《豆瓣读书3.0 —— 书名列表查询📖》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/3057611655.html&title=《豆瓣读书3.0 —— 书名列表查询📖》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/3057611655.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《豆瓣读书3.0 —— 书名列表查询📖》 — 正版乔&url=http://blog.feelyou.top/posts/3057611655.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/3057611655.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/1913976338.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">考研复试</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/undefined.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">calculus made easy</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Mon Feb 10 2020 17:51:39 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/3057611655.html&title=《豆瓣读书3.0 —— 书名列表查询📖》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/3057611655.html&title=《豆瓣读书3.0 —— 书名列表查询📖》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/3057611655.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《豆瓣读书3.0 —— 书名列表查询📖》 — 正版乔&url=http://blog.feelyou.top/posts/3057611655.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/3057611655.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aS5LDIAwFwNz/0k5V9jhPAi8MzWoq8dhqL4g+fD7xun5r9Hn+7eiT5G4LFgYGxmsZ1+3qPWAUaHLN6Lmj2DAwMM5hJI+551VDr5L+3AcDAwOjuCEmmVueSmJgYGDMM5JAq9s3BgYGRq+IXdtK66WeC2pxDAyMFzJm2mdP//3gfAMDA+MljKu4emlidThajgoDA2NrxkxzP78+b7dVd9epsDAwMF7CeKI1NoPPk8Xh7wYGBsYBjOqIsVcA56ToeAcGBsYBjN5xh/utsDfUbI4rMDAwtmbkR7vyEvTpMWR5EouBgbERo3o8ohr6WvCw6YaBgbEdI0/Xeu22pDzutfaiDBcDA2NTRnX0+MTgs1rcYmBg7M3opXH59TPDgzISAwPjAEb133rDg/nDGeVaHAMDYwtG3girtuTyoKupJAYGxjmM/IjDqq0wv/6KFwYGxt6MvLDsHdjqFca9qDAwMPZmXMVVbtnHRW/vRWBgYOzNyB+cJ3OrWniFRh4GBsYxjHzLyw+H9QaZ+W8FBgbGCYxqmyy/pneHBVQMDIztGDPla37YolfiFjZ6DAyMrRnzQ4J8DDkT7rKNGwMD47WMmZFkcmWvPVdtAmJgYJzAyBtbUbO+9Zqmtn4MDAyM1gGvJA/Ny+M/my8GBgZGUKbmTbTyYPL2ZWFgYJzDmBkG9IKoDhUWt9swMDBexaiWjvmQoFemVocNGBgYWzO+1s6tY5PVyxkAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-138421421-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+<!-- Tencent Speed -->
+<script>var _speedMark = new Date()</script>
+<!-- End Tencent Speed -->
+<!-- Tencent Analysis -->
+<script async src="//tajs.qq.com/stats?sId=66510270"></script>
+<!-- End Tencent Analysis -->
+
+
+    
+<!-- Baidu Tongji -->
+<script>var _hmt = _hmt || []</script>
+<script async src="//hm.baidu.com/hm.js?07222f0600614bc49c0c7d2d262a60f0"></script>
+<!-- End Baidu Tongji -->
+
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>xgboost论文学习 | 正版乔 | 算法工程师 &amp; ISBN收集者 &amp; 树莓派</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="机器学习">
+    <meta name="description" content="什么是 XGBoostXGBoost 是陈天奇等人开发的一个开源机器学习项目，高效地实现了 GBDT 算法并进行了算法和工程上的许多改进。XGBoost本质上还是一个GBDT(Gradient Boosting Decision Tree)，但是将速度和效率发挥到极致，所以叫 X (Extreme) GBoosted。 TREE BOOSTING IN A NUTSHELLRegularized">
+<meta name="keywords" content="机器学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="xgboost论文学习">
+<meta property="og:url" content="http://blog.feelyou.top/posts/3344740005.html">
+<meta property="og:site_name" content="正版乔">
+<meta property="og:description" content="什么是 XGBoostXGBoost 是陈天奇等人开发的一个开源机器学习项目，高效地实现了 GBDT 算法并进行了算法和工程上的许多改进。XGBoost本质上还是一个GBDT(Gradient Boosting Decision Tree)，但是将速度和效率发挥到极致，所以叫 X (Extreme) GBoosted。 TREE BOOSTING IN A NUTSHELLRegularized">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-d18da06af202b0fc.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-564cc302079b7030.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-2ac740b7aa041619.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-e1b26b548280dbd6.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f0300a91d922e5f8.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-622ac3b3c9436ecf.png?imageMogr2/auto-orient/strip|imageView2/2/w/1192/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-c5ec03830d9639b2.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-3442eede8d672c7b.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-909e89cd45a842ac.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190511154417858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3c5Mjg0ODUwOTY=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-a771b3820dfc0cb9.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-337bd95e3cc8503d.png?imageMogr2/auto-orient/strip|imageView2/2/w/1182/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip|imageView2/2/w/873/format/webp">
+<meta property="og:updated_time" content="2021-04-22T11:41:40.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="xgboost论文学习">
+<meta name="twitter:description" content="什么是 XGBoostXGBoost 是陈天奇等人开发的一个开源机器学习项目，高效地实现了 GBDT 算法并进行了算法和工程上的许多改进。XGBoost本质上还是一个GBDT(Gradient Boosting Decision Tree)，但是将速度和效率发挥到极致，所以叫 X (Extreme) GBoosted。 TREE BOOSTING IN A NUTSHELLRegularized">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6673934-d18da06af202b0fc.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp">
+    
+        <link rel="alternate" type="application/atom+xml" title="正版乔" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/kabuda.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">正版乔</h5>
+          <a href="mailto:qiaohaoforever@gmail.com" title="qiaohaoforever@gmail.com" class="mail">qiaohaoforever@gmail.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books"  >
+                <i class="icon icon-lg icon-book"></i>
+                books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://weibo.com/2788615604" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.twitter.com/qiaohaoforever" target="_blank" >
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/timeline"  >
+                <i class="icon icon-lg icon-link"></i>
+                时光机
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">xgboost论文学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">xgboost论文学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-03-04T03:15:35.000Z" itemprop="datePublished" class="page-time">
+  2020-03-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是-XGBoost"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是 XGBoost</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#TREE-BOOSTING-IN-A-NUTSHELL"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">TREE BOOSTING IN A NUTSHELL</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Regularized-Learning-Objective"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Regularized Learning Objective</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradient-Tree-Boosting"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Gradient Tree Boosting</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Shrinkage-and-Columns-Subsampling"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">Shrinkage and Columns Subsampling</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SPLIT-FINDING-ALGORITHMS"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">SPLIT FINDING ALGORITHMS</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Basic-Exact-Greedy-Algorithm"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Basic Exact Greedy Algorithm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Approximate-Algorithm"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Approximate Algorithm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Weight-Quantile-Sketch"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">Weight Quantile Sketch</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Sparsity-aware-Split-Finding"><span class="post-toc-number">1.2.4.</span> <span class="post-toc-text">Sparsity-aware Split Finding</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#XGBoost-与-GBDT-有什么不同"><span class="post-toc-number">2.</span> <span class="post-toc-text">XGBoost 与 GBDT 有什么不同</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程系统设计上的优化"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">工程系统设计上的优化</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#XGBoost-重要参数"><span class="post-toc-number">3.</span> <span class="post-toc-text">XGBoost 重要参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通用参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">通用参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Booster-参数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Booster 参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#学习目标参数"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">学习目标参数</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#objective-缺省值-reg-linear"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">objective [缺省值=reg:linear]</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#eval-metric-缺省值-通过目标函数选择"><span class="post-toc-number">3.3.2.</span> <span class="post-toc-text">eval_metric [缺省值=通过目标函数选择]</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-xgboost"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">xgboost论文学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-03-04 11:15:35" datetime="2020-03-04T03:15:35.000Z"  itemprop="datePublished">2020-03-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/技术/">技术</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="什么是-XGBoost"><a href="#什么是-XGBoost" class="headerlink" title="什么是 XGBoost"></a>什么是 XGBoost</h1><p>XGBoost 是陈天奇等人开发的一个开源机器学习项目，高效地实现了 GBDT 算法并进行了算法和工程上的许多改进。<code>XGBoost</code>本质上还是一个<code>GBDT</code>(<code>Gradient Boosting Decision Tree</code>)，但是将速度和效率发挥到极致，所以叫 X (Extreme) GBoosted。</p>
+<h2 id="TREE-BOOSTING-IN-A-NUTSHELL"><a href="#TREE-BOOSTING-IN-A-NUTSHELL" class="headerlink" title="TREE BOOSTING IN A NUTSHELL"></a>TREE BOOSTING IN A NUTSHELL</h2><h3 id="Regularized-Learning-Objective"><a href="#Regularized-Learning-Objective" class="headerlink" title="Regularized Learning Objective"></a>Regularized Learning Objective</h3><p>给定一个数据集 D 中有 n 个样本，每个样本有 m 维特征。通过训练数据集 D，我们得到 K 棵树。这 K 棵树累加的值为我们的预测值。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-d18da06af202b0fc.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="Boosting Tree的最终预测结果" title>
+                </div>
+                <div class="image-caption">Boosting Tree的最终预测结果</div>
+            </figure><br>其中$f_k(X_i)$是样本$X_i$在第 k 棵树的叶子上的权值。因此我们也可以这样定义。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-564cc302079b7030.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="样本$x_i$在第k棵树上的的权值" title>
+                </div>
+                <div class="image-caption">样本$x_i$在第k棵树上的的权值</div>
+            </figure></p>
+<p>GBDT 通过经验函数最小化来确定预测函数的参数，XGBoost 在经验函数的基础上加上正则化项，其中$\Omega$表示单棵树的正则化，正则化项表征了模型的复杂度，通过选择合适的参数限制模型复杂度，能够避免过拟合。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-159847d7293eac9e.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="XGBoost的Loss Function" title>
+                </div>
+                <div class="image-caption">XGBoost的Loss Function</div>
+            </figure>
+<p>其中$l$是可导且凸的<code>损失函数</code>，用来衡量 ŷ 与 y 的相近程度，第二项 Ω 则是<code>正则项</code>，它包含了两个部分，第一个是 γT，这里的<code>T</code>表示叶子结点的数量，<code>γ</code>是超参(gamma 指定了节点分裂所需的最小损失函数下降值)，也就是说如果 γ 越大，那么我们的叶子结点数量就会越小。另外一部分则是<code>L2正则项</code>，通过对叶子结点的权重进行惩罚，使得不会存在权重过大的叶子结点防止过拟合。$\omega$就表示<code>叶子结点的权重</code>。当$\Omega=0$时，剩下的项就是 GBDT 的目标优化函数。</p>
+<h3 id="Gradient-Tree-Boosting"><a href="#Gradient-Tree-Boosting" class="headerlink" title="Gradient Tree Boosting"></a>Gradient Tree Boosting</h3><p>GBDT 通过<code>梯度下降法</code>优化目标函数，梯度下降法是一种启发式优化算法，有可能陷入局部最优解。它们的不同之处是 XGBoost 优化的是<code>经泰勒展开后近似的目标函数</code>，该损失函数的推导如下，设：$\hat{y_i}^t=y^{(t-1)}+f_t(X_i)$<br>表示第 i 个实例在第 t 次迭代上的输出，第 t 次迭代的结果是产生第 t 颗树（boosting tree）。那么对第 t 颗树来说，其需要优化的目标函数将是如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-2ac740b7aa041619.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="提取出第t次迭代树的预测值，进行单独优化" title>
+                </div>
+                <div class="image-caption">提取出第t次迭代树的预测值，进行单独优化</div>
+            </figure></p>
+<p>对上式进行<code>二阶泰勒展开</code>得到如下的<code>近似目标函数</code>：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-e1b26b548280dbd6.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="对$f_t(X_i)$进行二阶泰勒展开" title>
+                </div>
+                <div class="image-caption">对$f_t(X_i)$进行二阶泰勒展开</div>
+            </figure></p>
+<p>其中，$g_i、h_i$分别是损失函数在当前模型的<code>一阶和二阶偏导</code>（gradient statistics）。当前模型已知，也就是当前模型对训练数据的误差已知，$l(y_i-\hat{ y }^{(t-1)})$为常量，对目标函数的优化没有影响，移除得到如下的目标函数：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-f0300a91d922e5f8.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="简化后的损失函数" title>
+                </div>
+                <div class="image-caption">简化后的损失函数</div>
+            </figure></p>
+<p>定义叶子结点 j 上的实例集合为$I_j= { i|q(X_i)=j }$，对(3)进一步处理、展开可以得到(4)式<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-622ac3b3c9436ecf.png?imageMogr2/auto-orient/strip|imageView2/2/w/1192/format/webp" alt="损失函数的关于ωj的二元函数" title>
+                </div>
+                <div class="image-caption">损失函数的关于ωj的二元函数</div>
+            </figure></p>
+<p>在(4)式中，目标函数对叶子结点权重求导，令导数=0，可以得到目标函数的解析最优解<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-c5ec03830d9639b2.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="极值点，叶子节点的权值" title>
+                </div>
+                <div class="image-caption">极值点，叶子节点的权值</div>
+            </figure></p>
+<p>将解析解带入(4)式可以得到目标函数最优值<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-3442eede8d672c7b.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="最优损失函数值" title>
+                </div>
+                <div class="image-caption">最优损失函数值</div>
+            </figure></p>
+<p>观察到最优解叶子结点 j 的权重$\omega^*_j$其实是跟树的结构有关，换句话说就是训练数据集中有多少以及哪些数据分到叶子结点 j 上面有关，所以论文的后续大部分在讨论怎么确定树结构。论文是用(6)式作为<code>scoring function</code>来衡量树的好坏。树的生成主要是对于选定的 feature 怎么选择<code>切分点</code>，由于 CART 回归树采用二分法进行树生成，也就是对于选定的 feature 只选择一个切分点将数据分到切分点的两边，所以论文采用(7)式衡量切分点的增益。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-909e89cd45a842ac.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="分支判断" title>
+                </div>
+                <div class="image-caption">分支判断</div>
+            </figure></p>
+<h3 id="Shrinkage-and-Columns-Subsampling"><a href="#Shrinkage-and-Columns-Subsampling" class="headerlink" title="Shrinkage and Columns Subsampling"></a>Shrinkage and Columns Subsampling</h3><p>除了以上提到了正则项以外，我们还有<code>shrinkage</code>与<code>列采样</code>技术来<em>避免过拟合</em>的出现。<br>所谓<code>shrinkage</code>就是在每个迭代中树中，对叶子结点乘以一个缩减权重<code>eta</code>。该操作的作用就是减少每颗树的影响力，留更多的空间给后来的树提升。<br>另一个技术则是<code>采样</code>的技术，有两种，一种是<code>列采样</code>(<strong>colsample_bytree</strong>和<strong>colsample_bylevel</strong>)，一种是<code>行采样</code>(<strong>subsample</strong>)。其中列采样的实现一般有两种方式，一种是按层随机 colsample_bylevel（一般来讲这种效果会好一点），另一种是建树前就随机选择特征 colsample_bytree。</p>
+<p>按层随机 colsample_bylevel 的意思就是，每次分裂一个结点的时候，我们都要遍历所有的特征和分割点，从而确定最优的分割点，那么如果加入了列采样，我们会在对同一层内每个结点分裂之前，先随机选择一部分特征，于是我们只需要遍历这部分的特征，来确定最优的分割点。</p>
+<p>建树前就随机选择特征 colsample_bytree 就表示我们在建树前就随机选择一部分特征，然后之后所有叶子结点的分裂都只使用这部分特征。</p>
+<p>而<code>行采样</code>则是<code>bagging</code>的思想，每次只抽取部分的样本进行训练，而不使用全部的样本，从而增加树的多样性。</p>
+<h2 id="SPLIT-FINDING-ALGORITHMS"><a href="#SPLIT-FINDING-ALGORITHMS" class="headerlink" title="SPLIT FINDING ALGORITHMS"></a>SPLIT FINDING ALGORITHMS</h2><h3 id="Basic-Exact-Greedy-Algorithm"><a href="#Basic-Exact-Greedy-Algorithm" class="headerlink" title="Basic Exact Greedy Algorithm"></a>Basic Exact Greedy Algorithm</h3><p><code>exact greedy algorithm</code>是一种切分点查找算法，如 Algorithm 1 所示。该算法对于每一个 feature，试图枚举出所有可能的切分点，并计算在每一个切分点上的增益，从而选择增益最好的切分点。在 algorithm1 中要枚举出所有的可能的切分点，算法是首先对所有训练数据对 feature k 的取值进行排序，这样就能轻易地枚举出所有的切分点。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-bcad2c844acad47f.png?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h3 id="Approximate-Algorithm"><a href="#Approximate-Algorithm" class="headerlink" title="Approximate Algorithm"></a>Approximate Algorithm</h3><p>exact greedy algorithm 很强大，但当训练<code>数据量太大</code>以至于无法完全读进内存或者运行在分布式计算资源上，就有问题了。所以论文总结了一种<code>approximate algorithm</code><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://img-blog.csdnimg.cn/20190511154417858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3c5Mjg0ODUwOTY=,size_16,color_FFFFFF,t_70" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<p>针对 feature k 先是根据特征分布的<code>percentile</code>列出了 L 个待选切分点（candidate splitting point），切分点值的集合$S_k$，之后根据(7)式分别计算这些待选切分点的增益，选择增益最好的切分点。根据 feature k 大小不同——是在训练的一开始就对全部训练数据的 feature k 列出待选切分点还是对分到某个结点上的训练数据的 feature k，approximate algorithm 有两种变体——global、local.</p>
+<h3 id="Weight-Quantile-Sketch"><a href="#Weight-Quantile-Sketch" class="headerlink" title="Weight Quantile Sketch"></a>Weight Quantile Sketch</h3><p><code>加权分位数</code>（weighted quantile）用于上述提到的待选<code>切分点</code>（percentile）的选择。具体来说，假设有数据集$D<em>k={(x</em>{1k},h<em>1),(x</em>{2k},h<em>2),···,(x</em>{nk},h_n)}$，表示实例 1、2、…、n 的特征 k 的值和其二阶偏导，则有如(8)所示的<code>rank function</code>，根据该 rank function 选择待选切分点。加权的意思 rank function 是用二阶偏导计算，也就是给每个实例以权重，该权重是实例点的二阶偏导。(8)式 rank function 表示对于特征 k，小于 z 的实例占总数的比重，这里的总数根据 global 还是 local 而定。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-a771b3820dfc0cb9.png?imageMogr2/auto-orient/strip|imageView2/2/format/webp" alt="用于分裂排序的Rank" title>
+                </div>
+                <div class="image-caption">用于分裂排序的Rank</div>
+            </figure></p>
+<p>根据需要选择的待选切分点数量$1/\epsilon$，我们可以得到分位数$S_k$.<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-337bd95e3cc8503d.png?imageMogr2/auto-orient/strip|imageView2/2/w/1182/format/webp" alt="定义eps用于设置最大的" title>
+                </div>
+                <div class="image-caption">定义eps用于设置最大的</div>
+            </figure></p>
+<p><code>max_depth</code>最大树深度：当树达到最大深度时则停止建立决策树。<br><code>min_child_weight</code>: 最小的样本权重和，样本权重和就是$\sum h_i$，当样本权重和小于设定阈值时则停止建树。</p>
+<p>$\sum_{i=1}^n\frac{1}{2}h_i(f_i(X_i)-g_i/h_i)^2+\Omega(f_t)+constant$ ，其中$g_i/h_i$表示 labels，$h_i$表示样本权重。</p>
+<h3 id="Sparsity-aware-Split-Finding"><a href="#Sparsity-aware-Split-Finding" class="headerlink" title="Sparsity-aware Split Finding"></a>Sparsity-aware Split Finding</h3><p>在实际场景中，<strong>数据缺失</strong>很常见，如果某实例点的特征值缺失，上述算法无法将该实例点分到任一子结点。对此论文提出了稀疏感知的切分点查找算法。原理大概是对于特征值缺失的实例点，基于这个分裂的评分函数，分别将其分到左右子结点$I_L$和$I_R$两边计算两个评分，计算增益，选择增益最好的划分方式作为该特征缺失情况下的默认划分。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/6673934-f28dd21993c50922.png?imageMogr2/auto-orient/strip|imageView2/2/w/873/format/webp" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h1 id="XGBoost-与-GBDT-有什么不同"><a href="#XGBoost-与-GBDT-有什么不同" class="headerlink" title="XGBoost 与 GBDT 有什么不同"></a>XGBoost 与 GBDT 有什么不同</h1><p>除了算法上与传统的 GBDT 有一些不同外，XGBoost 还在工程实现上做了大量的优化。总的来说，两者之间的区别和联系可以总结成以下几个方面。</p>
+<ul>
+<li><code>GBDT</code>是机器学习算法，<code>XGBoost</code>是该算法的工程实现；</li>
+<li>在使用<code>CART</code>作为基分类器时，XGBoost 显式地加入了<code>正则项</code>来控制模型的复杂度，有利于防止过拟合，从而提高模型的泛化能力；</li>
+<li>GBDT 在模型训练时只使用了代价函数的<code>一阶导数</code>信息，XGBoost 对代价函数进行<code>二阶泰勒</code>展开，可以同时使用一阶和二阶导数，二阶导数有利于梯度下降的更快更准. 使用泰勒展开取得函数做自变量的二阶导数形式, 可以在不选定损失函数具体形式的情况下, 仅仅依靠输入数据的值就可以进行叶子分裂优化计算, 本质上也就把损失函数的选取和模型算法优化/参数选择分开了。这种去耦合增加了 XGBoost 的适用性, 使得它按需选取损失函数, 可以用于分类, 也可以用于回归；</li>
+<li>传统的 GBDT 采用 CART 作为基分类器，XGBoost 支持<code>多种类型的基分类器</code>，比如线性分类器；</li>
+<li>传统的 GBDT 在每轮迭代时使用全部的数据，XGBoost 则采用了与随机森林相似的策略，支持<code>对数据进行采样</code>；</li>
+<li>传统的 GBDT 没有设计对缺失值进行处理，XGBoost 能够自动学习出<code>缺失值</code>的处理策略。</li>
+</ul>
+<h2 id="工程系统设计上的优化"><a href="#工程系统设计上的优化" class="headerlink" title="工程系统设计上的优化"></a>工程系统设计上的优化</h2><ul>
+<li>利用列块进行并行计算；</li>
+<li>缓存处理能力；</li>
+<li>数据块以外的计算力提高。</li>
+</ul>
+<h1 id="XGBoost-重要参数"><a href="#XGBoost-重要参数" class="headerlink" title="XGBoost 重要参数"></a>XGBoost 重要参数</h1><h2 id="通用参数"><a href="#通用参数" class="headerlink" title="通用参数"></a>通用参数</h2><ul>
+<li><strong>booster</strong>：gbtree 和 gblinear。<code>gbtree</code>是采用<code>树</code>的结构来运行数据，而<code>gblinear</code>是基于<code>线性模型</code>。</li>
+<li><strong>silent</strong>：静默模式，为<code>1</code>时模型运行不输出。</li>
+<li><strong>nthread</strong>: 使用线程数，数值型，-1 为使用所有线程。</li>
+</ul>
+<h2 id="Booster-参数"><a href="#Booster-参数" class="headerlink" title="Booster 参数"></a>Booster 参数</h2><blockquote>
+<p>控制每一步的 booster(tree/regression)。booster 参数一般可以调控模型的效果和计算代价。我们所说的调参，很这是大程度上都是在调整 booster 参数。</p>
+</blockquote>
+<ul>
+<li><strong>n_estimator</strong>: 也作<code>num_boosting_rounds</code>，这是生成的<code>最大树的数目</code>，也是<code>最大的迭代次数</code>；</li>
+<li><strong>learning_rate</strong>: 也作<code>eta</code>，系统默认值为<code>0.3</code>。每一步迭代的步长，太大了运行准确率不高，太小了运行速度慢。一般使用<code>0.1</code>左右；</li>
+<li><strong>min_child_weight</strong>: 默认值 1，<code>决定最小叶子节点样本权重和</code>。这个值可以理解为<code>H值</code>，就是损失函数对$y_{ (t-1) }$的<code>二阶导数和</code>，那么如果损失函数是平方函数（回归问题），这个就是 1；如果是对数损失函数（分类问题），导数是 a(1-a)的形式，a 代表<code>sigmoid函数</code>，这样的话当 y 预测值非常大的时候，这个式子的值接近于 0，因此需要设定一个阈值，小于这个阈值就不分裂了。这个值代表<code>所有样本二阶导数的和</code>，和<code>叶子得分</code>不是一个事，如果是回归问题实际代表样本个数，如果是分类问题实际代表 a(1-a)所有样本计算值的加和。这个参数用于避免过拟合，当它的值较大时，可以避免模型学习到局部的特殊样本。举个栗子来说，对正负样本不均衡时的 0-1 分类而言，假设 h 在 0.01 附近，min_child_weight 为 1 意味着叶子节点中最少需要包含 100 个样本，实际是通过控制样本数来控制过拟合的。</li>
+<li><strong>gamma</strong>：系统默认为 0,我们也常用 0。在节点分裂时，只有分裂后损失函数的值下降了，才会分裂这个节点。gamma 指定了节点分裂所需的最小损失函数下降值。 这个参数的值越大，算法越保守。因为 gamma 值越大的时候，损失函数下降更多才可以分裂节点。所以树生成的时候更不容易分裂节点。范围: [0,∞]；</li>
+<li><strong>subsample</strong>：系统默认为 1。这个参数控制<code>对于每棵树，随机采样的比例</code>。减小这个参数的值，算法会更加保守，避免过拟合。但是，如果这个值设置得过小，它可能会导致欠拟合。 典型值：0.5-1，0.5 代表平均采样，防止过拟合. 范围: (0,1]，<strong>注意不可取 0</strong>；</li>
+<li><strong>colsample_bytree</strong>：系统默认值为 1。我们一般设置成<code>0.8</code>左右。用来控制<code>每棵随机采样的列数的占比</code>(每一列是一个<code>特征</code>)。 典型值：0.5-1，范围: (0,1]；</li>
+<li><strong>colsample_bylevel</strong>：默认为 1,我们也设置为 1。这个就相比于<strong>colsample_bytree</strong>更加细致了，它指的是<code>每棵树每次节点分裂的时候列采样的比例</code>；</li>
+<li><strong>max_depth</strong>： 系统默认值为 6，我们常用 3-10 之间的数字。这个值为<code>树的最大深度</code>。这个值是用来控制过拟合的。max_depth 越大，模型学习的更加具体。设置为 0 代表没有限制，范围: [0,∞];</li>
+<li><strong>max_leaf_nodes</strong>: 树上最大节点的数量，和上面的那个参数一样，如果定义了这个参数就会忽略掉 max_depth 参数，我们调优还是以 max_depth 为主吧；</li>
+<li><strong>max_delta_step</strong>：默认 0,我们常用 0。这个参数限制了<code>每棵树权重改变的最大步长</code>，如果这个参数的值为 0,则意味着没有约束。如果他被赋予了某一个正值，则是这个算法更加保守。通常，这个参数我们不需要设置，但是当各类别的<code>样本极不平衡</code>的时候，这个参数对逻辑回归优化器是很有帮助的;</li>
+<li><strong>lambda</strong>:也称 reg_lambda,默认值为 0。<code>权重的L2正则化项</code>(和 Ridge regression 类似)。这个参数是用来控制 XGBoost 的正则化部分的。这个参数在减少过拟合上很有帮助。</li>
+<li><strong>alpha</strong>:也称 reg_alpha 默认为 0,<code>权重的L1正则化项</code>(和 Lasso regression 类似)。 可以应用在很高维度的情况下，使得算法的速度更快;</li>
+<li><strong>scale_pos_weight</strong>：默认为 1，在各类别样本十分不平衡时，把这个参数设定为一个正值，可以使算法更快收敛。通常可以将其设置为<code>负样本的数目与正样本数目的比值</code>，sum(negative cases) / sum(positive cases) 。</li>
+<li><strong>tree_method</strong>: [default=’auto’]有三个可选的值， {‘auto’, ‘exact’, ‘approx’} ，分别对应 贪心算法(小数据集)/近似算法(大数据集) 。</li>
+</ul>
+<h2 id="学习目标参数"><a href="#学习目标参数" class="headerlink" title="学习目标参数"></a>学习目标参数</h2><blockquote>
+<p>控制训练目标的表现。我们对于问题的划分主要体现在学习目标参数上。比如我们要做分类还是回归，做二分类还是多分类，这都是目标参数所提供的。</p>
+</blockquote>
+<ul>
+<li><strong>seed</strong>: (default=0)，这个叫随机数种子，这个参数就是为了可以使结果复现。</li>
+</ul>
+<h3 id="objective-缺省值-reg-linear"><a href="#objective-缺省值-reg-linear" class="headerlink" title="objective [缺省值=reg:linear]"></a>objective [缺省值=reg:linear]</h3><ul>
+<li><strong>reg:linear</strong> – 线性回归</li>
+<li><strong>reg:logistic</strong> – 逻辑回归</li>
+<li><strong>binary:logistic</strong> – 二分类逻辑回归，输出为概率</li>
+<li><strong>binary:logitraw</strong> – 二分类逻辑回归，输出的结果为 wTx</li>
+<li><strong>count:poisson</strong> – 计数问题的 poisson 回归，输出结果为 poisson 分布。在 poisson 回归中，max_delta_step 的缺省值为 0.7 (used to safeguard optimization)</li>
+<li><strong>multi:softmax</strong> – 设置 XGBoost 使用 softmax 目标函数做<code>多分类</code>，需要设置参数 num_class（类别个数）</li>
+<li><strong>multi:softprob</strong> – 如同 softmax，但是输出结果为 ndata*nclass 的向量，其中的值是每个数据分为每个类的概率。</li>
+</ul>
+<h3 id="eval-metric-缺省值-通过目标函数选择"><a href="#eval-metric-缺省值-通过目标函数选择" class="headerlink" title="eval_metric [缺省值=通过目标函数选择]"></a>eval_metric [缺省值=通过目标函数选择]</h3><ul>
+<li><strong>rmse</strong>: 均方根误差</li>
+<li><strong>mae</strong>: 平均绝对值误差</li>
+<li><strong>logloss</strong>: negative log-likelihood</li>
+<li><strong>error</strong>: 二分类错误率。其值通过错误分类数目与全部分类数目比值得到。对于预测，预测值大于 0.5 被认为是正类，其它归为负类。 error@t: 不同的划分阈值可以通过 ‘t’进行设置</li>
+<li><strong>merror</strong>: 多分类错误率，计算公式为(wrong cases)/(all cases)</li>
+<li><strong>mlogloss</strong>: 多分类 log 损失</li>
+<li><strong>auc</strong>: 曲线下的面积</li>
+<li><strong>ndcg</strong>: Normalized Discounted Cumulative Gain</li>
+<li><strong>map</strong>: 平均正确率</li>
+</ul>
+<hr>
+<p>目录：</p>
+<ul>
+<li><a href="https://xgboost.readthedocs.io/en/latest/parameter.html" target="_blank" rel="noopener">https://xgboost.readthedocs.io/en/latest/parameter.html</a></li>
+<li><a href="https://blog.csdn.net/a358463121/article/details/68617389" target="_blank" rel="noopener">https://blog.csdn.net/a358463121/article/details/68617389</a></li>
+<li><a href="https://www.cnblogs.com/mantch/p/11164221.html" target="_blank" rel="noopener">https://www.cnblogs.com/mantch/p/11164221.html</a></li>
+<li><a href="https://github.com/NLP-LOVE/ML-NLP/blob/master/Machine%20Learning/3.2%20GBDT/3.2%20GBDT.md" target="_blank" rel="noopener">https://github.com/NLP-LOVE/ML-NLP/blob/master/Machine%20Learning/3.2%20GBDT/3.2%20GBDT.md</a></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2021-04-22T11:41:40.716Z" itemprop="dateUpdated">2021-04-22 19:41:40</time>
+</span><br>
+
+
+        
+        转载请注明来源：<a href="/posts/3344740005.html" target="_blank" rel="external">http://blog.feelyou.top/posts/3344740005.html</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://blog.feelyou.top">
+            <img src="/img/kabuda.jpg" alt="正版乔">
+            正版乔
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/机器学习/">机器学习</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/3344740005.html&title=《xgboost论文学习》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/3344740005.html&title=《xgboost论文学习》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/3344740005.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《xgboost论文学习》 — 正版乔&url=http://blog.feelyou.top/posts/3344740005.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/3344740005.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/posts/leetcode680.html" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">【leetcode】680.验证回文字符串Ⅱ</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/posts/leetcode125.html" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">【leetcode】125.验证回文串</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="comments" id="comments">
+        <div id="gitalk-container"></div>
+        <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+        <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+        <script>
+            var gitalk = new Gitalk({
+                clientID: '9e3d102cde5576e794de',
+                clientSecret: '9613cc02890ecd7069d91daffc82bb8630224b38',
+                repo: 'qiaohaoforever.github.io',
+                owner: 'qiaohaoforever',
+                admin: 'qiaohaoforever',
+                id: 'Wed Mar 04 2020 11:15:35 GMT+0800',
+                distractionFreeMode: false
+                })
+                
+            gitalk.render('gitalk-container')
+        </script>
+    </section>
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>正版乔 &copy; 2018 - 2021</span>
+            <span>
+                
+                <a href="http://www.miitbeian.gov.cn/" target="_blank">京ICP备18045880号</a><br>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://blog.feelyou.top/posts/3344740005.html&title=《xgboost论文学习》 — 正版乔&pic=http://blog.feelyou.top/img/kabuda.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://blog.feelyou.top/posts/3344740005.html&title=《xgboost论文学习》 — 正版乔&source=正版乔的博客" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.feelyou.top/posts/3344740005.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《xgboost论文学习》 — 正版乔&url=http://blog.feelyou.top/posts/3344740005.html&via=http://blog.feelyou.top" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://blog.feelyou.top/posts/3344740005.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACK0lEQVR42u3aS3KEMAxFUfa/aTLtQYD7JCfVyNejFEWMTwaK9TkOvM6PdfX8fpE9799fsGTIkPFaBvl87Vifz9N3+NlkyJCxD+PqWPfvkOPef/4eSc4mQ4YMGVfvkHDceSJDhgwZawMuD8df/X9DhgwZX88gSSwviqVhlCfPC3JxGTJkvJDBq+7///Of9DdkyJDxKsYZLhIc+wE6PpUMGTJGMzopaKeRGSeo5CsyZMgYykjHINLBC74PfxL0TmXIkDGIwce/yFHS8Yu0IXoZcGXIkLEZo9Pg5MUy3gZAV0MZMmSMZqSJaJp8pk1HHvRlyJCxAyOuzIWDFDxN7RfgZMiQsQOjU0Trh8ha0Q3NuMmQIWM0Iy2l9Q+UhngZMmTsySDNzlqTgBf9WymxDBkyxjFWjXnx9iT5LifJkCFjH0Zto9pAGL8UtoYtZMiQMYiRhs704pjuFo+u1v4DyJAh44UMnsSSw9VamJz98EeRIUPGUAbZmhfLeDLMC3Zx81KGDBnbMPhR+uNf6ZXxl9+SIUPGxozaEAZPR9Pr4yVehgwZmzHSKlZnOOMI18O0iAwZMsYxznClJbNaa5MPbciQIWMHRhrmasetpcqcKkOGjB0Y/cYk6pHiK2kx4MqQIWMDBg98tVL+qiT5YdhChgwZMvBoRS3dTXduBVwZMmSMZqxKSmuXzockVoYMGaMZaTOgdix+0Pi6KUOGjNGMzqRGLZiSQTGOkSFDxmjGD3qgLLp86mm6AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
