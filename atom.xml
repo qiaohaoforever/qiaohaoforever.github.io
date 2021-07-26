@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://blog.feelyou.top/"/>
-  <updated>2021-06-01T15:38:08.283Z</updated>
+  <updated>2021-06-01T15:38:34.104Z</updated>
   <id>http://blog.feelyou.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://blog.feelyou.top/posts/4273093055.html"/>
     <id>http://blog.feelyou.top/posts/4273093055.html</id>
     <published>2021-06-01T15:19:19.000Z</published>
-    <updated>2021-06-01T15:38:08.283Z</updated>
+    <updated>2021-06-01T15:38:34.104Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>经历了面试才体会到不论头多硬都得好好刷leetcode。<br>在reddit上学习到的先进科学文化知识，不错的网站和刷题表格。刷起来，朋友。</p></blockquote><p><a href="https://seanprashad.com/leetcode-patterns/" target="_blank" rel="noopener">leetcode-patterns</a></p><h2 id="tips"><a href="#tips" class="headerlink" title="tips:"></a>tips:</h2><ul><li>如果输入<strong>数组是有序</strong>的：二分查找、双指针；</li><li>如果要求<strong>互换</strong>、子集的：回溯；</li><li>如果给出<strong>树</strong>：DFS/BFS；</li><li>如果给出<strong>图</strong>：DFS/BFS；</li><li>如果给一个<strong>链表</strong>：双指针；</li><li>如果<strong>禁止递归</strong>：栈；</li><li>如果必须在<strong>原位置</strong>解决：交换符合条件的值、存储一个或多个不同值在相同指针；</li><li>如果求<strong>最大/小 子数组/子集/选项</strong>：动态规划；</li><li>如果求<strong>top/least K items</strong>：堆；</li><li><p>如果求<strong>公共字符串</strong>：Map、前缀树（trie）</p></li><li><p>Map/Set 占用O(1)时间和O(n)空间；</p></li><li>排序 占用O(nlogn)时间和O(1)空间；</li></ul>]]></content>
     
@@ -45,25 +45,11 @@
   </entry>
   
   <entry>
-    <title>PATTERNS</title>
-    <link href="http://blog.feelyou.top/posts/undefined.html"/>
-    <id>http://blog.feelyou.top/posts/undefined.html</id>
-    <published>2021-06-01T15:18:48.000Z</published>
-    <updated>2021-06-01T15:18:48.845Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>The Elements of Statistical Learning</title>
     <link href="http://blog.feelyou.top/posts/2650520387.html"/>
     <id>http://blog.feelyou.top/posts/2650520387.html</id>
     <published>2021-06-01T14:54:56.000Z</published>
-    <updated>2021-06-01T15:18:17.551Z</updated>
+    <updated>2021-06-01T15:38:34.102Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>掌握、探索统计学习基础的问题是非常有必要的，算法领域变化如此之快，基础不牢固，很难跟上新的算法，加油。</p></blockquote>]]></content>
     
@@ -134,6 +120,32 @@
     
     
       <category term="前端" scheme="http://blog.feelyou.top/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>必须做点什么！</title>
+    <link href="http://blog.feelyou.top/posts/2284308600.html"/>
+    <id>http://blog.feelyou.top/posts/2284308600.html</id>
+    <published>2021-05-27T13:35:47.000Z</published>
+    <updated>2021-06-01T14:58:50.740Z</updated>
+    
+    <content type="html"><![CDATA[<pre><code>心又开始躁动了，太多想法想要实现，但是，做的太少太少了。必须做点什么了！</code></pre><p>blog已经闲置好久了，今天打开发现<code>hexo g</code>生成的<code>public</code>文件夹为空，部署失败。原因是hexo对nodejs14版本支持不太好，mvn版本管理可解，看样子工具得常用才行，斧子都锈了😅<br>生锈的还有脑子和手，很久都没写文章了，手已经写不出脑子里想的东西了，脑子里面也是乱七八糟，不成结构，我也不知道我要写什么，可能你也看不到这篇文章，我就想到哪写到哪吧。</p><p>先说最急切的事情，免得待会写忘记。</p><ul><li>开始写文章，不管写什么，坚持下笔；</li><li>把前端（uni-app）搞定，我必须得搞一个自己的app出来，我也不知道为了什么，可能是梦想吧；</li><li>好好搞数据比赛，机器学习和深度学习都得搞出点东西；</li><li>继续刷题，找个喜欢的工作；</li></ul><p>现在（2021-05-27 22：07）blog处于空白状态，这周有时间hexo还得配置好，老方案 GitHub page + 腾讯云静态部署，这次搞妥了就好好别瞎懂了，每次要砍树就得修斧子，也是醉了。。。</p><p>最近微信公众号每天都会有几个人因为竹简ISBN联系到我，得抓紧把文档给整理好了，老版本的东西就删了，文档又不需要历史记录。另外，鉴权问题也得测试一下，这把锁得牢靠。官方主页也得做出来了，嗯，加油！</p><p>技术视频，这个得提上议程了，摄像头都买了这么久，不用心疼，哈哈哈。</p><p>对了，还有坚持看书！三日不读书面目可憎🤡</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;pre&gt;&lt;code&gt;心又开始躁动了，太多想法想要实现，但是，做的太少太少了。必须做点什么了！
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;blog已经闲置好久了，今天打开发现&lt;code&gt;hexo g&lt;/code&gt;生成的&lt;code&gt;public&lt;/code&gt;文件夹为空，部署失败。原因是hex
+      
+    
+    </summary>
+    
+      <category term="技术" scheme="http://blog.feelyou.top/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="生活" scheme="http://blog.feelyou.top/categories/%E6%8A%80%E6%9C%AF/%E7%94%9F%E6%B4%BB/"/>
+    
     
   </entry>
   
@@ -342,10 +354,10 @@
   
   <entry>
     <title>calculus made easy</title>
-    <link href="http://blog.feelyou.top/posts/undefined.html"/>
-    <id>http://blog.feelyou.top/posts/undefined.html</id>
+    <link href="http://blog.feelyou.top/posts/calculusmadeeasy.html"/>
+    <id>http://blog.feelyou.top/posts/calculusmadeeasy.html</id>
     <published>2019-12-18T08:39:13.000Z</published>
-    <updated>2021-04-22T11:41:40.714Z</updated>
+    <updated>2021-06-01T15:46:28.639Z</updated>
     
     <content type="html"><![CDATA[<p>NO.1 TO DELIVER YOU FROM THE PRELIMINARY TERRORS<br>(1) d which merely means “a little bit of.”<br>Thus dx means a little bit of x; or du means a little bit of u. Ordinary mathematicians think it more polite to say “an element of,” instead of “a little bit of.” Just as you please. But you will find that these little bits (or elements) may be considered to be indefinitely small.</p><p>(2) ∫ which is merely a long S, and may be called (if you like) “the sum of.”<br>Thus ∫dx means the sum of all the little bits of x; or ∫dt means the sum of all the little bits of t. Ordinary mathematicians call this symbol “the integral of.” Now any fool can see that if x is considered as made up of a lot of little bits, each of which is called dx, if you add them all up together you get the sum of all the dx’s, (which is the same thing as the whole of x). The word “integral” simply means “the whole.” If you think of the duration of time for one hour, you may (if you like) think of it as cut up into 3600 little bits called seconds. The whole of the 3600 little bits added up together make one hour.</p><p>NO.2 ON DIFFERENT DEGREES OF SMALLNESS</p>]]></content>
     
